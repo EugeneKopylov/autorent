@@ -8,16 +8,17 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table(name = "t_permission")
+@Table(name = "t_role")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Permission implements Serializable {
+public class Role implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final Long serialVersionUID = 2L;
 
     @Id
     @GeneratedValue(generator = "increment")
@@ -25,21 +26,25 @@ public class Permission implements Serializable {
             name = "increment",
             strategy = "org.hibernate.id.IncrementGenerator"
     )
-    private Integer id;
+    @Column(name = "role_id")
+    private int id;
 
-    @Column(name = "desc_perm")
-    private String desc;
+    @Column(name = "role_name")
+    private String roleName;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
+    @Column(name = "role_desc")
+    private String roleDescription;
+
+    @OneToMany(mappedBy = "role")
+    private List<Permission> permissions;
 
     @Override
     public String toString() {
-        return "Permission{" +
+        return "Role{" +
                 "id=" + id +
-                ", desc='" + desc + '\'' +
-                ", role=" + role +
+                ", roleName='" + roleName + '\'' +
+                ", roleDescription='" + roleDescription + '\'' +
+//                ", permissions=" + permissions +
                 '}';
     }
 }

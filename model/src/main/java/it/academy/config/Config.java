@@ -2,6 +2,7 @@ package it.academy.config;
 
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -31,6 +32,12 @@ public class Config {
 
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
+        hibernateProperties.put(Environment.SHOW_SQL, "true");
+        hibernateProperties.put(Environment.FORMAT_SQL, "true");
+        hibernateProperties.put(Environment.DEFAULT_SCHEMA, "auto_rent");
+        hibernateProperties.put(Environment.HBM2DDL_AUTO, "update");
+        hibernateProperties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
+        hibernateProperties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
         em.setJpaProperties(hibernateProperties);
 
         return em;

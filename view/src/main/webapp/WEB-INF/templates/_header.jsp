@@ -28,6 +28,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/autorent/add-permission.html">Add description</a></li>
+            <li><a class="dropdown-item" href="/autorent/add-role.html">Add role</a></li>
           </ul>
         </li>
       </ul>

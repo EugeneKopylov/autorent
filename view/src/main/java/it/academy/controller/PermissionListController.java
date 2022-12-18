@@ -2,6 +2,7 @@ package it.academy.controller;
 
 import it.academy.dao.PermissionDao;
 import it.academy.model.Permission;
+import it.academy.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,7 @@ import java.util.Map;
 public class PermissionListController {
 
     @Autowired
-    private PermissionDao permissionDao;
+    private PermissionService permissionService;
 
     private static final int pageSize = 3;
 
@@ -26,7 +27,7 @@ public class PermissionListController {
 //        pageable.getPrintable(2);
         return new ModelAndView(
                 "permission_list",
-                Map.of("permissions", permissionDao.findAllPermissionsNames(0, pageSize))
+                Map.of("permissions", permissionService.listOfPermission(0, pageSize))
         );
     }
     @GetMapping("/permission-list/{offset}.html")
@@ -34,7 +35,7 @@ public class PermissionListController {
         System.out.println("is this pagination?");
         return new ModelAndView(
                 "permission_list",
-                Map.of("permissions", permissionDao.findAllPermissionsNames(offset, pageSize))
+                Map.of("permissions", permissionService.listOfPermission(offset, pageSize))
         );
     }
 }

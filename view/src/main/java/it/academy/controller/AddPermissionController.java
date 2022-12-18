@@ -21,7 +21,7 @@ public class AddPermissionController {
     @PostMapping("/add-permission.html")
     public String addPermission(Permission permission) {
         System.out.println("AddPermission " + permission);
-        permissionService.addNewPermission((Permission) permission);
+        permissionService.addNewPermission(permission);
         return "redirect:/permission-list/0.html";
     }
 }
