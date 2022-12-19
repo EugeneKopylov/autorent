@@ -5,6 +5,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -19,7 +20,7 @@ import java.util.Properties;
 @Configuration
 @PropertySource({"classpath:/auto_rent.jdbc.properties", "classpath:/hibernate.properties"})
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "it.academy.repository")
+@EnableJpaRepositories(basePackages = "it.academy")
 @ComponentScan(basePackages = "it.academy")
 public class Config {
 
@@ -66,10 +67,10 @@ public class Config {
         return transactionManager;
     }
 
-/*    @Bean
+    @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
         return new PersistenceExceptionTranslationPostProcessor();
-    }*/
+    }
 
     @Bean
     public Properties hibernateProperties(
