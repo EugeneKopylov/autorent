@@ -3,10 +3,6 @@
 <h1>Add car</h1>
 
 <form method="post" action="/autorent/add-car.html" enctype="multipart/form-data">
-  <div class="mb-3">
-      <label for="carPicture" class="form-label">Photo</label>
-      <input type="file" name="carPicture" class="form-control" id="carPicture">
-  </div>
   <!-- brand -->
   <div class="mb-3">
     <label for="brand" class="form-label">Brand</label>
@@ -15,8 +11,8 @@
   </div>
   <!-- model -->
   <div class="mb-3">
-      <label for="model" class="form-label">model</label>
-      <input type="text" name="model" class="form-control" id="model" aria-describedby="modelHelp">
+      <label for="carModel" class="form-label">model</label>
+      <input type="text" name="carModel" class="form-control" id="carModel" aria-describedby="modelHelp">
       <div id="modelHelp" class="form-text">Enter model</div>
   </div>
    <!-- bodyType -->
@@ -61,6 +57,10 @@
        <input type="text" name="carDescription" class="form-control" id="carDescription" aria-describedby="carDescHelp">
        <div id="carDescHelp" class="form-text">Enter car description</div>
    </div>
+   <div class="mb-3">
+         <label for="picture" class="form-label">Photo</label>
+         <input type="file" name="picture" class="form-control" id="picture">
+     </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

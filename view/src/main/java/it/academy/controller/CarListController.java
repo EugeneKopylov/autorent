@@ -22,18 +22,26 @@ public class CarListController {
     @GetMapping("/car-list/0.html")
     public ModelAndView showCarList() {
         return new ModelAndView(
-                "permission_list",
-                Map.of("permissions", carService.listOfCars(0, PAGE_SIZE))
+                "car_list",
+                Map.of("cars", carService.listOfCars(0, PAGE_SIZE))
         );
     }
 
-/*    @ResponseBody
-    @GetMapping("/image/{car.id}/photo.jpg")
+    @GetMapping("car-list/{offset}.html")
+    public ModelAndView getCarsWithPagination(@PathVariable int offset) {
+        return new ModelAndView(
+                "car_list",
+                Map.of("cars", carService.listOfCars(offset, PAGE_SIZE))
+        );
+    }
+
+    @ResponseBody
+    @GetMapping("/image/{car.id}/picture.jpg")
     public byte[] getImage(@PathVariable("car.id") int carId) {
         System.out.println("_________________________________________________________________________________________");
         System.out.println("Call getImage: " + carId);
         Car car = carService.getById(carId);
-        return car.getCarPicture();
-    }*/
+        return car.getCarPicture().getPicture();
+    }
 
 }

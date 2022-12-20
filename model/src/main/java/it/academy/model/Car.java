@@ -5,27 +5,29 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity(name = "car")
 @Getter
 @Setter
 @Table(name = "t_car")
-public class Car {
+public class Car implements Serializable {
 
     @Id
+    @Column(name = "car_id")
     @GeneratedValue(generator = "increment")
     @GenericGenerator(
             name = "increment",
             strategy = "org.hibernate.id.IncrementGenerator"
     )
-    private Integer id;
+    private int id;
 
     //todo - brand и model закинуть в отдельную таблицу
     @Column(name = "brand")
     private String brand;
 
-    @Column(name = "model")
-    private String model;
+    @Column(name = "car_model")
+    private String carModel;
 
     @Column(name = "body_type")
     private String bodyType;
@@ -50,15 +52,15 @@ public class Car {
     @Column(name = "car_description")
     private String carDescription;
 
-    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
-    CarPicture carPicture;
+    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private CarPicture carPicture;
 
     @Override
     public String toString() {
         return "Car{" +
                 "id=" + id +
                 ", brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
+                ", model='" + carModel + '\'' +
                 ", bodyType='" + bodyType + '\'' +
                 ", gearbox='" + gearbox + '\'' +
                 ", yearOfProd=" + yearOfProd +

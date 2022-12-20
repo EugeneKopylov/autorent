@@ -2,6 +2,7 @@ package it.academy.container;
 
 import it.academy.config.Config;
 import it.academy.service.ServiceContextConfig;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -11,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 import java.util.Set;
 
+@Component
 public class ServletContainerInitializerImpl implements ServletContainerInitializer {
 
     @Override

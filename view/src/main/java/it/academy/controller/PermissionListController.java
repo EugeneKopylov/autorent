@@ -1,10 +1,7 @@
 package it.academy.controller;
 
-import it.academy.dao.PermissionDao;
-import it.academy.model.Permission;
 import it.academy.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +28,7 @@ public class PermissionListController {
         );
     }
     @GetMapping("/permission-list/{offset}.html")
-    private ModelAndView getProductsWithPagination(@PathVariable int offset) {
+    public ModelAndView getProductsWithPagination(@PathVariable int offset) {
         System.out.println("is this pagination?");
         return new ModelAndView(
                 "permission_list",

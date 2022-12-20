@@ -16,18 +16,14 @@ public class CarService {
     CarDao carDao;
 
     @Transactional
-    public void addNewCar(Car car, byte[] carPicture) {
-        //CarPicture picture = new CarPicture();
-        /*picture.setCar(car);
-        picture.setCarPicture(carPicture);
-        car.setCarPicture(picture);*/
-        if(car.getCarPicture() == null) {
-            CarPicture picture = new CarPicture();
-            picture.setCar(car);
-            picture.setCarPicture(carPicture);
-            car.setCarPicture(picture);
+    public void addNewCar(Car car, byte[] picture) {
+
+        if (car.getCarPicture() == null) {
+            CarPicture pic = new CarPicture();
+            pic.setCar(car);
+            pic.setPicture(picture);
+            car.setCarPicture(pic);
         }
-//        car.setCarPicture(photo);
         carDao.createCar(car);
     }
 

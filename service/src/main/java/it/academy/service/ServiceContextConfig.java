@@ -13,17 +13,8 @@ import java.time.temporal.ChronoUnit;
 @ComponentScan(basePackages = {"it.academy.service"})
 public class ServiceContextConfig {
 
-    @Bean(name = "httpClientWithTimeout")
-    @Primary
-    public HttpClient httpClient() {
-        return HttpClient
-                .newBuilder()
-                .connectTimeout(Duration.of(10, ChronoUnit.SECONDS))
-                .build();
-    }
-
     @Bean(name = "simpleHttpClient")
-    public HttpClient httpClient1() {
+    public HttpClient httpClient() {
         return HttpClient.newHttpClient();
     }
 
