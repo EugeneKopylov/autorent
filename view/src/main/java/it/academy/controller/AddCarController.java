@@ -16,16 +16,16 @@ public class AddCarController {
     @Autowired
     CarService carService;
 
-    @GetMapping("/add-car.html")
+    @GetMapping("/add-car.view")
     public String showAddCarPage(){
         return "add_car";
     }
 
-    @PostMapping("/add-car.html")
+    @PostMapping("/add-car.action")
     @SneakyThrows
     public String addCar(@RequestParam("picture") MultipartFile file, Car car) {
         byte[] bytes = file.getBytes();
         carService.addNewCar(car, bytes);
-        return "redirect:/car-list/0.html";
+        return "redirect:/car-list/0.view";
     }
 }

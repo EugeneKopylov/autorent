@@ -19,14 +19,14 @@ public class RoleListController {
 
     private static final int pageSize = 3;
 
-    @RequestMapping(value = "/role-list/0.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/role-list/0.view", method = RequestMethod.GET)
     public ModelAndView showRoleList() {
         return new ModelAndView(
                 "role_list",
                 Map.of("roles", roleService.listOfRoleNames(0, pageSize))
         );
     }
-    @GetMapping("/role-list/{offset}.html")
+    @GetMapping("/role-list/{offset}.view")
     private ModelAndView getProductsWithPagination(@PathVariable int offset) {
         return new ModelAndView(
                 "role_list",

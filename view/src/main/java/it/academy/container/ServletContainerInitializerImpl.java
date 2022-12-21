@@ -31,6 +31,8 @@ public class ServletContainerInitializerImpl implements ServletContainerInitiali
         servletRegistration.setLoadOnStartup(1);
         servletRegistration.addMapping("*.html");
         servletRegistration.addMapping("*.jpg");
+        servletRegistration.addMapping("*.view");  //GET
+        servletRegistration.addMapping("*.action"); //POST
         // *.view - GET
         // *.action - POST
 

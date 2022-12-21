@@ -19,14 +19,14 @@ public class PermissionListController {
 
     private static final int pageSize = 3;
 
-    @RequestMapping(value = "/permission-list/0.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/permission-list/0.view", method = RequestMethod.GET)
     public ModelAndView showPermissionList() {
         return new ModelAndView(
                 "permission_list",
                 Map.of("permissions", permissionService.listOfPermission(0, pageSize))
         );
     }
-    @GetMapping("/permission-list/{offset}.html")
+    @GetMapping("/permission-list/{offset}.view")
     public ModelAndView getProductsWithPagination(@PathVariable int offset) {
         System.out.println("is this pagination?");
         return new ModelAndView(

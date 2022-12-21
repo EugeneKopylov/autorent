@@ -19,7 +19,7 @@ public class CarListController {
 
     private static final int PAGE_SIZE = 2;
 
-    @GetMapping("/car-list/0.html")
+    @GetMapping("/car-list/0.view")
     public ModelAndView showCarList() {
         return new ModelAndView(
                 "car_list",
@@ -27,7 +27,7 @@ public class CarListController {
         );
     }
 
-    @GetMapping("car-list/{offset}.html")
+    @GetMapping("car-list/{offset}.view")
     public ModelAndView getCarsWithPagination(@PathVariable int offset) {
         return new ModelAndView(
                 "car_list",

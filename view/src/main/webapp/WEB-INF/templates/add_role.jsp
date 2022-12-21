@@ -1,7 +1,7 @@
 <jsp:include page="_header.jsp"/>
 <h1>Add permission</h1>
 
-<form method="post" action="/autorent/add-role.html">
+<form method="post" action="/autorent/add-role.action">
   <div class="mb-3">
     <label for="roleName" class="form-label">Role</label>
     <input type="text" name="roleName" class="form-control" id="roleName" aria-describedby="roleHelp">

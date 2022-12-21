@@ -2,7 +2,7 @@
 <jsp:include page="_header.jsp"/>
 <h1>Add car</h1>
 
-<form method="post" action="/autorent/add-car.html" enctype="multipart/form-data">
+<form method="post" action="/autorent/add-car.action" enctype="multipart/form-data">
   <!-- brand -->
   <div class="mb-3">
     <label for="brand" class="form-label">Brand</label>

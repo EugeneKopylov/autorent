@@ -13,15 +13,15 @@ public class AddPermissionController {
     @Autowired
     private PermissionService permissionService;
 
-    @GetMapping("/add-permission.html")
+    @GetMapping("/add-permission.view")
     public String showAddProductPage() {
         return "add_permission";
     }
 
-    @PostMapping("/add-permission.html")
+    @PostMapping("/add-permission.action")
     public String addPermission(Permission permission) {
         System.out.println("AddPermission " + permission);
         permissionService.addNewPermission(permission);
-        return "redirect:/permission-list/0.html";
+        return "redirect:/permission-list/0.view";
     }
 }

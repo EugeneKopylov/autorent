@@ -13,14 +13,14 @@ public class AddRoleController {
     @Autowired
     RoleService roleService;
 
-    @GetMapping("add-role.html")
+    @GetMapping("add-role.view")
     public String showAddRolePage() {
         return "add_role";
     }
 
-    @PostMapping("add-role.html")
+    @PostMapping("add-role.action")
     public String addRole(Role role) {
         roleService.addNewRole(role);
-        return "redirect:/role-list/0.html";
+        return "redirect:/role-list/0.view";
     }
 }
