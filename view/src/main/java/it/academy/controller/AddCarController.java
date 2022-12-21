@@ -24,12 +24,7 @@ public class AddCarController {
     @PostMapping("/add-car.html")
     @SneakyThrows
     public String addCar(@RequestParam("picture") MultipartFile file, Car car) {
-        //System.out.println(file.getOriginalFilename() + ": " + file.getSize());
-        System.out.println("_____________________________________________________________________________________");
         byte[] bytes = file.getBytes();
-        System.out.println(bytes);
-        //System.out.println(Arrays.toString(file.getBytes()));
-        System.out.println("_____________________________________________________________________________________");
         carService.addNewCar(car, bytes);
         return "redirect:/car-list/0.html";
     }

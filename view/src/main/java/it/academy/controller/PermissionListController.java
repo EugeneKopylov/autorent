@@ -21,7 +21,6 @@ public class PermissionListController {
 
     @RequestMapping(value = "/permission-list/0.html", method = RequestMethod.GET)
     public ModelAndView showPermissionList() {
-//        pageable.getPrintable(2);
         return new ModelAndView(
                 "permission_list",
                 Map.of("permissions", permissionService.listOfPermission(0, pageSize))

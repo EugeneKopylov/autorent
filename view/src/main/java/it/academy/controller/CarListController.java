@@ -38,8 +38,6 @@ public class CarListController {
     @ResponseBody
     @GetMapping("/image/{car.id}/picture.jpg")
     public byte[] getImage(@PathVariable("car.id") int carId) {
-        System.out.println("_________________________________________________________________________________________");
-        System.out.println("Call getImage: " + carId);
         Car car = carService.getById(carId);
         return car.getCarPicture().getPicture();
     }
