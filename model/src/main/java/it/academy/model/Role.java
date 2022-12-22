@@ -9,6 +9,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "t_role")
@@ -37,6 +38,9 @@ public class Role implements Serializable {
 
     @OneToMany(mappedBy = "role")
     private List<Permission> permissions;
+
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
+    private Set<User> users;
 
     @Override
     public String toString() {
