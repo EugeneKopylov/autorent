@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -37,8 +38,8 @@ public class User implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "orderList")
-    private String orderList;
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<Order> orderList;
 
     @ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JoinTable(

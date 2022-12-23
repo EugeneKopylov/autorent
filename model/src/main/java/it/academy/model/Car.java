@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity(name = "car")
 @Getter
@@ -54,6 +55,9 @@ public class Car implements Serializable {
 
     @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private CarPicture carPicture;
+
+    @OneToMany(mappedBy = "car")
+    private List<Order> orders;
 
     @Override
     public String toString() {
