@@ -28,7 +28,7 @@ public class CarService {
     }
 
     @Transactional
-    public List listOfCars(int pageNumber, int pageSize) {
+    public List<Car> listOfCars(int pageNumber, int pageSize) {
         return carDao.findAllCars(pageNumber, pageSize);
     }
 

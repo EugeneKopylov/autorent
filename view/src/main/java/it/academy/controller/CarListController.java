@@ -1,21 +1,31 @@
 package it.academy.controller;
 
-import it.academy.model.Car;
+import it.academy.api.mapper.Mapper;
 import it.academy.service.CarService;
+import it.academy.service.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
 
-@Controller
+import static java.util.stream.Collectors.toList;
+
+//@Controller
+@RestController
 public class CarListController {
 
     @Autowired
     CarService carService;
+
+    @Autowired
+    PictureService pictureService;
+
+    @Autowired
+    Mapper mapper;
 
     private static final int PAGE_SIZE = 2;
 
@@ -23,7 +33,7 @@ public class CarListController {
     public ModelAndView showCarList() {
         return new ModelAndView(
                 "car_list",
-                Map.of("cars", carService.listOfCars(0, PAGE_SIZE))
+                Map.of("cars", carService.listOfCars(0, PAGE_SIZE).stream().map(mapper::toDto).collect(toList()))
         );
     }
 
@@ -31,15 +41,14 @@ public class CarListController {
     public ModelAndView getCarsWithPagination(@PathVariable int offset) {
         return new ModelAndView(
                 "car_list",
-                Map.of("cars", carService.listOfCars(offset, PAGE_SIZE))
+                Map.of("cars", carService.listOfCars(offset, PAGE_SIZE).stream().map(mapper::toDto).collect(toList()))
         );
     }
 
     @ResponseBody
-    @GetMapping("/image/{car.id}/picture.jpg")
-    public byte[] getImage(@PathVariable("car.id") int carId) {
-        Car car = carService.getById(carId);
-        return car.getCarPicture().getPicture();
+    @GetMapping("/image/{car.idCarPicture.id}/picture.jpg")
+    public byte[] getImage(@PathVariable("car.idCarPicture.id") int picture) {
+        return pictureService.getCarPictureById(picture).getPicture();
     }
 
 }

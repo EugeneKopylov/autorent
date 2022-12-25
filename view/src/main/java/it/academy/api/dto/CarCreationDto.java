@@ -1,16 +1,14 @@
 package it.academy.api.dto;
 
 import it.academy.model.CarPicture;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
 @Setter
-public class CarDto {
+@Getter
+@NoArgsConstructor
+public class CarCreationDto {
 
     private String brand;
     private String carModel;
@@ -21,6 +19,6 @@ public class CarDto {
     private String engineCapacity;
     private Integer cost;
     private String carDescription;
-    private int idCarPicture;
+    private CarPicture carPicture;
 
 }

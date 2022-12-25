@@ -22,7 +22,7 @@
     <td><c:out value="${car.fuelType} ${engineCapacity}"/></td>
     <td><c:out value="${car.cost}"/></td>
     <td><c:out value="${car.carDescription}"/></td>
-    <td><image src="/autorent/image/${car.id}/picture.jpg" class="img-thumbnail"><td>
+    <td><image src="/autorent/image/${car.idCarPicture}/picture.jpg" class="img-thumbnail"><td>
   </tr>
   </c:forEach>
 </table>

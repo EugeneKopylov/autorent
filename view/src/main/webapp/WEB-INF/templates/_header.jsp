@@ -20,7 +20,7 @@
           <a class="nav-link active" aria-current="page" href="/autorent/index.view">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/autorent/car-list.view">Car list</a>
+          <a class="nav-link" href="/autorent/car-list/0.view">Car list</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

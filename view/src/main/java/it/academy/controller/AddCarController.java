@@ -5,9 +5,7 @@ import it.academy.service.CarService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -29,3 +27,23 @@ public class AddCarController {
         return "redirect:/car-list/0.view";
     }
 }
+
+/*@RestController
+public class AddCarController {
+
+    @Autowired
+    private CarService carService;
+
+    @Autowired
+    private Mapper mapper;
+
+    public AddCarController(CarService carService, Mapper mapper) {
+        this.carService = carService;
+        this.mapper = mapper;
+    }
+
+    @GetMapping("/add-car.view")
+    @ResponseBody
+    public List<CarDto> showAddCarPage() {
+    }
+}*/
