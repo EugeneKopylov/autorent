@@ -1,4 +1,4 @@
-package it.academy.model;
+package it.academy.model.car;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,9 +1,9 @@
 package it.academy.repository;
 
-import it.academy.model.car.CarPicture;
+import it.academy.model.car.CarBrand;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CarPictureRepository extends JpaRepository<CarPicture, Integer> {
+public interface CarBrandRepository extends JpaRepository<CarBrand, Integer> {
 }

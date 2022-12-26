@@ -1,6 +1,6 @@
 package it.academy.api.dto;
 
-import it.academy.model.CarPicture;
+import it.academy.model.car.CarPicture;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

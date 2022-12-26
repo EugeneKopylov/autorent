@@ -1,5 +1,6 @@
 package it.academy.model;
 
+import it.academy.model.car.Car;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;

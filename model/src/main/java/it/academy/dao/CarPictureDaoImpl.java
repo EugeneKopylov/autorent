@@ -1,6 +1,6 @@
 package it.academy.dao;
 
-import it.academy.model.CarPicture;
+import it.academy.model.car.CarPicture;
 import it.academy.repository.CarPictureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

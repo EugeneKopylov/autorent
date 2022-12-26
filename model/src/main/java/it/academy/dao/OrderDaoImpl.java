@@ -1,6 +1,7 @@
 package it.academy.dao;
 
 import it.academy.model.Order;
+import it.academy.model.car.CarModel;
 import it.academy.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;

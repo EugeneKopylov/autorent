@@ -1,5 +1,6 @@
-package it.academy.model;
+package it.academy.model.car;
 
+import it.academy.model.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,12 +28,14 @@ public class Car implements Serializable {
     )
     private int id;
 
-    //todo - brand и model закинуть в отдельную таблицу
+/*    //todo - brand и model закинуть в отдельную таблицу
     @Column(name = "brand")
-    private String brand;
+    private String brand;*/
+/*    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private ModelBrand brand;*/
 
-    @Column(name = "car_model")
-    private String carModel;
+/*    @Column(name = "car_model")
+    private String carModel;*/
 
     @Column(name = "body_type")
     private String bodyType;
@@ -66,11 +69,11 @@ public class Car implements Serializable {
     @OneToMany(mappedBy = "car")
     private List<Order> orders;
 
-    public Car(String brand, String carModel, String bodyType, String gearbox,
+    public Car(String brand, String bodyType, String gearbox,
                Integer yearOfProd, String fuelType, String engineCapacity,
                Integer cost, String carDescription, CarPicture carPicture) {
-        this.brand = brand;
-        this.carModel = carModel;
+//        this.brand = brand;
+//        this.carModel = carModel;
         this.bodyType = bodyType;
         this.gearbox = gearbox;
         this.yearOfProd = yearOfProd;
@@ -85,8 +88,8 @@ public class Car implements Serializable {
     public String toString() {
         return "Car{" +
                 "id=" + id +
-                ", brand='" + brand + '\'' +
-                ", model='" + carModel + '\'' +
+ //               ", brand='" + brand + '\'' +
+//                ", model='" + carModel + '\'' +
                 ", bodyType='" + bodyType + '\'' +
                 ", gearbox='" + gearbox + '\'' +
                 ", yearOfProd=" + yearOfProd +

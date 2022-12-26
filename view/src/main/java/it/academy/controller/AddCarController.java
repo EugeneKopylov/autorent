@@ -1,6 +1,6 @@
 package it.academy.controller;
 
-import it.academy.model.Car;
+import it.academy.model.car.Car;
 import it.academy.service.CarService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package it.academy.dao;
 
-import it.academy.model.CarPicture;
+import it.academy.model.car.CarPicture;
 import org.springframework.stereotype.Repository;
 
 @Repository

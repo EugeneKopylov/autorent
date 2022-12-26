@@ -1,6 +1,5 @@
 package it.academy.api.dto;
 
-import it.academy.model.CarPicture;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,8 +11,7 @@ import lombok.Setter;
 @Setter
 public class CarDto {
 
-    private String brand;
-    private String carModel;
+//    private ModelBrand brand;
     private String bodyType;
     private String gearbox;
     private Integer yearOfProd;
