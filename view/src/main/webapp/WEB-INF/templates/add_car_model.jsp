@@ -5,10 +5,10 @@
 <form method="post" action="/autorent/add-car-model.action">
 
   <div class="mb-3">
-   <label for="carBrand.id">Choose a car brand:</label>
-   <select class="form-select" id="carBrand.id" name="carBrand.id">
-    <c:forEach items="${brands}" var="carBrand">
-     <option value="${carBrand.id}">${carBrand.brandName}</option>
+   <label for="brand.id">Choose a car brand:</label>
+   <select class="form-select" id="brand.id" name="brand.id">
+    <c:forEach items="${brands}" var="brand">
+     <option value="${brand.id}">${brand.brandName}</option>
     </c:forEach>
    </select>
   </div>

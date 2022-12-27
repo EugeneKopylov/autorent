@@ -1,15 +1,13 @@
 package it.academy.api.mapper;
 
-import it.academy.api.dto.CarDto;
-import it.academy.model.car.Car;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Mapper {
 
-    public CarDto toDto (Car car) {
-/*        String brand = car.getBrand();
-        String carModel = car.getCarModel();*/
+/*    public CarDto toDto (Car car) {
+//        String brand = car.getBrand();
+//        String carModel = car.getCarModel();
 //        ModelBrand brand = car.getBrand();
         String bodyType = car.getBodyType();
         String gearbox = car.getGearbox();
@@ -20,11 +18,11 @@ public class Mapper {
         String carDescription = car.getCarDescription();
         int idCarPicture = car.getCarPicture().getId();
         return new CarDto(
-                /*brand,*/ bodyType, gearbox,
+                *//*brand,*//* bodyType, gearbox,
                 yearOfProd, fuelType, engineCapacity, cost,
                 carDescription, idCarPicture
         );
-    }
+    }*/
 
 /*    public Car toCar (CarCreationDto carDto) {
         return new Car(

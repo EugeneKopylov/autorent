@@ -1,6 +1,6 @@
 package it.academy.model.car;
 
-import it.academy.model.Order;
+import it.academy.model.order.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,14 +28,17 @@ public class Car implements Serializable {
     )
     private int id;
 
-/*    //todo - brand и model закинуть в отдельную таблицу
-    @Column(name = "brand")
-    private String brand;*/
-/*    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private ModelBrand brand;*/
+    @ManyToOne
+    @JoinColumn(name = "f_brand_id")
+    private CarBrand brand;
 
-/*    @Column(name = "car_model")
-    private String carModel;*/
+    //todo переделать под ManyToMany
+/*    ManyToOne
+    @JoinColumn(name = "f_model_id")
+    private CarModel carModel;*/
+    @ManyToOne
+    @JoinColumn(name = "f_model_id")
+    private CarModel carModel;
 
     @Column(name = "body_type")
     private String bodyType;

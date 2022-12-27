@@ -8,6 +8,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,7 +19,7 @@ import java.io.Serializable;
 public class CarModel {
 
     @Id
-    @Column(name = "model_id")
+    @Column(name = "f_model_id")
     @GeneratedValue(generator = "increment")
     @GenericGenerator(
             name = "increment",
@@ -29,6 +30,9 @@ public class CarModel {
     @ManyToOne
     @JoinColumn(name = "f_brand_id")
     private CarBrand brand;
+
+    @OneToMany(mappedBy = "carModel")
+    private List<Car> cars;
 
     @Column(name = "car_model")
     private String carModel;
