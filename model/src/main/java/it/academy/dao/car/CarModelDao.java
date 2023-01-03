@@ -14,5 +14,6 @@ public interface CarModelDao {
     List<CarModel> getAllModel();
     List<CarModel> getAllModelByBrand(CarBrand carBrand);
     void createCarModel(CarModel carModel);
+    List<CarModel> findByCarModelName(String modelName);
 
 }

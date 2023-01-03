@@ -7,7 +7,6 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -34,6 +33,6 @@ public class CarModel {
     @OneToMany(mappedBy = "carModel")
     private List<Car> cars;
 
-    @Column(name = "car_model")
-    private String carModel;
+    @Column(name = "car_model_name")
+    private String carModelName;
 }

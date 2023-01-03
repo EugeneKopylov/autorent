@@ -17,7 +17,7 @@ public class CarModelDaoImpl implements CarModelDao {
     @Override
     public void createModelWithoutBrand(String model) {
         CarModel carModel = new CarModel();
-        carModel.setCarModel(model);
+        carModel.setCarModelName(model);
         carModelRepository.save(carModel);
     }
 
@@ -25,7 +25,7 @@ public class CarModelDaoImpl implements CarModelDao {
     public void createModelWithBrand(CarBrand carBrand, String model) {
         CarModel carModel = new CarModel();
         carModel.setBrand(carBrand);
-        carModel.setCarModel(model);
+        carModel.setCarModelName(model);
         carModelRepository.save(carModel);
     }
 
@@ -42,5 +42,10 @@ public class CarModelDaoImpl implements CarModelDao {
     @Override
     public void createCarModel(CarModel carModel) {
         carModelRepository.save(carModel);
+    }
+
+    @Override
+    public List<CarModel> findByCarModelName(String modelName) {
+        return carModelRepository.findByCarModelName(modelName);
     }
 }

@@ -14,8 +14,8 @@ import lombok.Setter;
 public class CarDto {
 
 //    private ModelBrand brand;
-    private CarBrand brand;
-    private CarModel carModel;
+    private String brand;
+    private String carModel;
     private String bodyType;
     private String gearbox;
     private Integer yearOfProd;
@@ -23,6 +23,6 @@ public class CarDto {
     private String engineCapacity;
     private Integer cost;
     private String carDescription;
-    private int idCarPicture;
+    private Integer idCarPicture;
 
 }

@@ -55,4 +55,14 @@ public class BrandModelService {
         carModelDao.createCarModel(carModel);
     }
 
+    @Transactional
+    public List<CarBrand> getCarBrandByBrandName(String brandName) {
+        return carBrandDao.findByBrandName(brandName);
+    }
+
+    @Transactional
+    public List<CarModel> getCarModelName(String carModel) {
+        return carModelDao.findByCarModelName(carModel);
+    }
+
 }

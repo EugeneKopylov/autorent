@@ -17,8 +17,21 @@ public class CarService {
 
     @Transactional
     public void addNewCar(Car car, byte[] picture) {
-
+        System.out.println("can i get here?");
+        System.out.println("can i get here?");
+        System.out.println("can i get here?");
+        System.out.println("can i get here?");
+        System.out.println("can i get here?");
+        System.out.println("can i get here?");
+        System.out.println("can i get here?");
+        System.out.println("can i get here?");
+        System.out.println("can i get here?");
         if (car.getCarPicture() == null) {
+            System.out.println("there is a really null");
+            System.out.println("there is a really null");
+            System.out.println("there is a really null");
+            System.out.println("there is a really null");
+            System.out.println("there is a really null");
             CarPicture pic = new CarPicture();
             pic.setCar(car);
             pic.setPicture(picture);
@@ -36,4 +49,5 @@ public class CarService {
     public Car getById(int id) {
         return carDao.findById(id);
     }
+
 }

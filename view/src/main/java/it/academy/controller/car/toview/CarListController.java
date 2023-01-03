@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Map;
+
+import static java.util.stream.Collectors.toList;
 
 //@Controller
 @RestController
@@ -24,7 +29,7 @@ public class CarListController {
 
     private static final int PAGE_SIZE = 2;
 
-/*    @GetMapping("/car-list/0.view")
+    @GetMapping("/car-list/0.view")
     public ModelAndView showCarList() {
         return new ModelAndView(
                 "car_list",
@@ -38,7 +43,7 @@ public class CarListController {
                 "car_list",
                 Map.of("cars", carService.listOfCars(offset, PAGE_SIZE).stream().map(mapper::toDto).collect(toList()))
         );
-    }*/
+    }
 
     @ResponseBody
     @GetMapping("/image/{car.idCarPicture.id}/picture.jpg")

@@ -45,6 +45,7 @@ public class AddCarModelWithBrand {
         System.out.println("i'am nothing to do");
  /*       CarModel carModel1 = new CarModel(1,new CarBrand(), "gfhjk");
         carModel.save(carModel1);*/
+//        carModel.setCarModelName("something");
         brandModelService.createModel(carModel);
         return "redirect:/add-car-model.view";
     }

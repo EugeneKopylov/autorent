@@ -14,8 +14,8 @@
   </div>
 
   <div class="mb-3">
-    <label for="carModel" class="form-label">car model</label>
-    <input type="text" name="carModel" class="form-control" id="carModel" aria-describedby="brandHelp">
+    <label for="carModelName" class="form-label">car model</label>
+    <input type="text" name="carModelName" class="form-control" id="carModelName" aria-describedby="brandHelp">
     <div id="brandHelp" class="form-text">Enter car model</div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>

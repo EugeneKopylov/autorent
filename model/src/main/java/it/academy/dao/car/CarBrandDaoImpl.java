@@ -4,6 +4,7 @@ import it.academy.model.car.CarBrand;
 import it.academy.model.car.CarModel;
 import it.academy.repository.car.CarBrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,7 +14,6 @@ public class CarBrandDaoImpl implements CarBrandDao {
 
     @Autowired
     CarBrandRepository carBrandRepository;
-
 
     @Override
     public void createBrand(String brandName) {
@@ -32,7 +32,13 @@ public class CarBrandDaoImpl implements CarBrandDao {
         return carBrandRepository.findAll();
     }
 
+    @Override
     public List<CarModel> getAllModelByBrand(CarBrand carBrand) {
         return carBrand.getCarModels();
+    }
+
+    @Override
+    public List<CarBrand> findByBrandName(String brandName) {
+        return carBrandRepository.findByBrandName(brandName);
     }
 }

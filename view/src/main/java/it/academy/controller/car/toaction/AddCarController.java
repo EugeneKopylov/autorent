@@ -1,6 +1,9 @@
 package it.academy.controller.car.toaction;
 
+import it.academy.api.dto.car.CarDto;
+import it.academy.api.mapper.Mapper;
 import it.academy.model.car.Car;
+import it.academy.model.car.CarPicture;
 import it.academy.service.car.CarService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,17 +17,43 @@ public class AddCarController {
     @Autowired
     CarService carService;
 
+    @Autowired
+    Mapper mapper;
+
     @GetMapping("/add-car.view")
     public String showAddCarPage(){
         return "add_car";
     }
 
-    @PostMapping("/add-car.action")
+    /*@PostMapping("/add-car.action")
     @SneakyThrows
     public String addCar(@RequestParam("picture") MultipartFile file, Car car) {
         byte[] bytes = file.getBytes();
         carService.addNewCar(car, bytes);
         return "redirect:/car-list/0.view";
+    }*/
+
+    @PostMapping("/add-car.action")
+    @SneakyThrows
+    public String addCar(@RequestParam("picture") MultipartFile file, CarDto carDto) {
+        System.out.println("try to add car");
+        System.out.println("try to add car");
+        System.out.println("try to add car");
+        System.out.println("try to add car");
+        System.out.println("try to add car");
+        byte[] bytes = file.getBytes();
+        System.out.println(file.getName() + " i get the file name " + file.getSize());
+        //в carDto, судя по всему нет картинки
+        Car car = mapper.toCar(carDto);
+        carService.addNewCar(car, bytes);
+        System.out.println("can i really get a picture????????????????????????????? " + car.getCarPicture());
+        System.out.println("but not get it");
+        System.out.println("but not get it");
+        System.out.println("but not get it");
+        System.out.println("but not get it");
+        System.out.println("but not get it");
+        //return "redirect:/car-list/0.view";
+        return "redirect:/add-car.view";
     }
 }
 
