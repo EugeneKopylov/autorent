@@ -18,8 +18,8 @@ public class Mapper {
     @Autowired
     CarModelDao carModelDao;
 
-    @Autowired
-    CarPictureDao carPictureDao;
+/*    @Autowired
+    CarPictureDao carPictureDao;*/
 
     //carDto is string
     public CarDto toDto (Car car) {
@@ -35,7 +35,7 @@ public class Mapper {
         int idCarPicture = car.getCarPicture().getId();
         return new CarDto(
                 brand, carModel, bodyType, gearbox,yearOfProd, fuelType,
-                engineCapacity,cost,carDescription, idCarPicture
+                engineCapacity,cost,carDescription/*, idCarPicture*/
         );
     }
 
@@ -44,7 +44,7 @@ public class Mapper {
                 carModelDao.findByCarModelName(carDto.getCarModel()).stream().findFirst().get(),
                 carDto.getBodyType(), carDto.getGearbox(), carDto.getYearOfProd(),
                 carDto.getFuelType(), carDto.getEngineCapacity(), carDto.getCost(),
-                carDto.getCarDescription(),carPictureDao.getCarPicture(carDto.getIdCarPicture())
+                carDto.getCarDescription()/*,carPictureDao.getCarPicture(carDto.getIdCarPicture())*/
                 );
     }
 }

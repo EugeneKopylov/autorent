@@ -44,6 +44,7 @@ public class AddCarController {
         byte[] bytes = file.getBytes();
         System.out.println(file.getName() + " i get the file name " + file.getSize());
         //в carDto, судя по всему нет картинки
+//        carDto.setIdCarPicture(1);
         Car car = mapper.toCar(carDto);
         carService.addNewCar(car, bytes);
         System.out.println("can i really get a picture????????????????????????????? " + car.getCarPicture());

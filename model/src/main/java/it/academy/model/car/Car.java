@@ -88,6 +88,18 @@ public class Car implements Serializable {
         this.carPicture = carPicture;
     }
 
+    public Car(CarBrand brand, CarModel carModel, String bodyType, String gearbox, Integer yearOfProd, String fuelType, String engineCapacity, Integer cost, String carDescription) {
+        this.brand = brand;
+        this.carModel = carModel;
+        this.bodyType = bodyType;
+        this.gearbox = gearbox;
+        this.yearOfProd = yearOfProd;
+        this.fuelType = fuelType;
+        this.engineCapacity = engineCapacity;
+        this.cost = cost;
+        this.carDescription = carDescription;
+    }
+
     @Override
     public String toString() {
         return "Car{" +

@@ -23,6 +23,6 @@ public class CarDto {
     private String engineCapacity;
     private Integer cost;
     private String carDescription;
-    private Integer idCarPicture;
+//    private Integer idCarPicture;
 
 }
