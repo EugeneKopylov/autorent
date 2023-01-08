@@ -54,7 +54,7 @@ public class AddCarController {
         System.out.println("but not get it");
         System.out.println("but not get it");
         //return "redirect:/car-list/0.view";
-        return "redirect:/add-car.view";
+        return "redirect:/car-list/0.view";
     }
 }
 

@@ -4,18 +4,17 @@ import it.academy.api.mapper.Mapper;
 import it.academy.service.car.CarService;
 import it.academy.service.car.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
 
 import static java.util.stream.Collectors.toList;
 
-//@Controller
-@RestController
+@Controller
 public class CarListController {
 
     @Autowired
