@@ -29,4 +29,11 @@ public class CarPicture implements Serializable {
     @Lob
     @Column(name = "car_picture", columnDefinition = "MEDIUMBLOB NOT NULL")
     private byte[] picture;
+
+    public CarPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+    public CarPicture() {
+    }
 }

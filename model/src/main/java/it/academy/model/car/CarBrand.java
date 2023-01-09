@@ -41,4 +41,8 @@ public class CarBrand {
                 ", carModels=" + carModels +
                 '}';
     }
+
+    public CarBrand(String brandName) {
+        this.brandName = brandName;
+    }
 }

@@ -35,4 +35,8 @@ public class CarModel {
 
     @Column(name = "car_model_name")
     private String carModelName;
+
+    public CarModel(String carModelName) {
+        this.carModelName = carModelName;
+    }
 }
