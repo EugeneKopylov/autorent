@@ -16,13 +16,13 @@
   <c:forEach items="${cars}" var="car">
   <tr>
     <td><c:out value="${car.brand} ${car.carModel}"/></td>
-    <td><c:out value="${car.bodyType}"/></td>
+    <td><c:out value="${car.bodyType}"/></t3d>
     <td><c:out value="${car.gearbox}"/></td>
     <td><c:out value="${car.yearOfProd}"/></td>
     <td><c:out value="${car.fuelType} ${engineCapacity}"/></td>
     <td><c:out value="${car.cost}"/></td>
     <td><c:out value="${car.carDescription}"/></td>
-    <td><image src="/autorent/image/${car.idCarPicture}/picture.jpg" class="img-thumbnail"><td>
+    <td><image src="/autorent/image/${car.carIdPicture}/picture.jpg" class="img-thumbnail"><td>
   </tr>
   </c:forEach>
 </table>

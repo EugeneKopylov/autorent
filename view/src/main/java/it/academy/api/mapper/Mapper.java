@@ -25,11 +25,11 @@ public class Mapper {
         String engineCapacity = car.getEngineCapacity();
         Integer cost = car.getCost();
         String carDescription = car.getCarDescription();
-        byte[] carPicture = car.getCarPicture().getPicture();
+        int carIdPicture = car.getCarPicture().getId();
 
         return new CarDto(brand, carModel, bodyType,
                 gearbox, yearOfProd, fuelType, engineCapacity,
-                cost, carDescription, carPicture);
+                cost, carDescription, carIdPicture);
     }
 
     public Car toCar(CarCreationDto carDto) {

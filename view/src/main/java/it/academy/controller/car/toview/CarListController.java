@@ -1,6 +1,8 @@
 package it.academy.controller.car.toview;
 
 import it.academy.api.mapper.Mapper;
+import it.academy.model.car.Car;
+import it.academy.model.car.CarPicture;
 import it.academy.service.car.CarService;
 import it.academy.service.car.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,7 @@ public class CarListController {
 
     private static final int PAGE_SIZE = 2;
 
+    //тут уже будет carDto?
     @GetMapping("/car-list/0.view")
     public ModelAndView showCarList() {
         return new ModelAndView(
@@ -45,9 +48,9 @@ public class CarListController {
     }
 
     @ResponseBody
-    @GetMapping("/image/{car.idCarPicture.id}/picture.jpg")
-    public byte[] getImage(@PathVariable("car.idCarPicture.id") int picture) {
-        return pictureService.getCarPictureById(picture).getPicture();
+    @GetMapping("/image/{car.carIdPicture}/picture.jpg")
+    public byte[] getImage(@PathVariable("car.carIdPicture") int carIdPicture) {
+        return pictureService.getCarPictureById(carIdPicture).getPicture();
     }
 
 }

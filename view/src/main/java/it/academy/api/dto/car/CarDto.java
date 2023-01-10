@@ -11,11 +11,11 @@ public class CarDto {
     private String engineCapacity;
     private Integer cost;
     private String carDescription;
-    private byte[] carPicture;
+    private int carIdPicture;
 
     public CarDto(String brand, String carModel, String bodyType, String gearbox,
                   Integer yearOfProd, String fuelType, String engineCapacity,
-                  Integer cost, String carDescription, byte[] carPicture) {
+                  Integer cost, String carDescription, int carIdPicture) {
         this.brand = brand;
         this.carModel = carModel;
         this.bodyType = bodyType;
@@ -25,7 +25,7 @@ public class CarDto {
         this.engineCapacity = engineCapacity;
         this.cost = cost;
         this.carDescription = carDescription;
-        this.carPicture = carPicture;
+        this.carIdPicture = carIdPicture;
     }
 
     public String getBrand() {
@@ -64,7 +64,7 @@ public class CarDto {
         return carDescription;
     }
 
-    public byte[] getCarPicture() {
-        return carPicture;
+    public int getCarIdPicture() {
+        return carIdPicture;
     }
 }
