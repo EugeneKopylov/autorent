@@ -44,6 +44,12 @@ public class AddCarController {
     @GetMapping("/add-car/{brand}.view")
     public ModelAndView addCarPage(Model model, @PathVariable String brand) {
 
+        if(brand.equals("")) {
+            List<String> brandNames = brandModelService.getAllBrandStringName();
+            model.addAttribute("brand", brandNames);
+            return new ModelAndView("add_car");
+        }
+
         List<String> brandNames = brandModelService.getAllBrandStringName();
         CarBrand carBrand = brandModelService.getCarBrandByBrandName(brand).get(0);
         brandModelService.getAllModelStringFromBrand(carBrand);
@@ -55,5 +61,16 @@ public class AddCarController {
         model.addAttribute("models", modelNames);
 
         return new ModelAndView("add_car");
+    }
+
+    @PostMapping("add-car.action")
+    @SneakyThrows
+    public String addCar(@RequestParam("picture") MultipartFile file, CarCreationDto carDto,
+                         @RequestParam("model") String models,
+                         @RequestParam("brand") String brand) {
+        carDto.setBrand(brand);
+        carDto.setCarModel(models);
+        carService.addNewCar(mapper.toCar(carDto), file.getBytes());
+        return "redirect:/car-list/0.view";
     }
 }
