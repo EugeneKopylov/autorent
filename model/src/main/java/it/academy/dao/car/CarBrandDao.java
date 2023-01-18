@@ -14,9 +14,11 @@ public interface CarBrandDao {
     void createBrand(String brandName);
     CarBrand getCarBrandById(Integer idBrand);
     List<CarBrand> getAllBrands();
+    List<String> getAllBrandsNames();
     //todo сделать поиск модели через данный метод - исключает возможность
     // использования иного бренда при совпадении имен моделей у брендов
     List<CarModel> getAllModelByBrand(CarBrand carBrand);
+    List<String> getAllModelByBrandStringNames(CarBrand carBrand);
     List<CarBrand> findByBrandName(String brandName);
 
 }

@@ -33,6 +33,13 @@ public class Mapper {
     }
 
     public Car toCar(CarCreationDto carDto) {
+        System.out.println(carDto.getBrand() + "this is from carDto");
+        System.out.println(carDto.getBrand() + "this is from carDto");
+        System.out.println(carDto.getBrand() + "this is from carDto");
+        System.out.println(carDto.getBrand() + "this is from carDto");
+        System.out.println(carDto.getBrand() + "this is from carDto");
+        System.out.println(carDto.getBrand() + "this is from carDto");
+        System.out.println(carDto.getBrand() + "this is from carDto");
         return new Car(new CarBrand(carDto.getBrand()), new CarModel(carDto.getCarModel()), carDto.getBodyType(),
                 carDto.getGearbox(), carDto.getYearOfProd(), carDto.getFuelType(), carDto.getEngineCapacity(),
                 carDto.getCost(), carDto.getCarDescription(), new CarPicture(carDto.getCarPicture()));

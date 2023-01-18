@@ -41,8 +41,18 @@ public class BrandModelService {
     }
 
     @Transactional
+    public List<String> getAllModelStringFromBrand(CarBrand carBrand) {
+        return carBrandDao.getAllModelByBrandStringNames(carBrand);
+    }
+
+    @Transactional
     public List<CarBrand> getAllCarBrands() {
         return carBrandDao.getAllBrands();
+    }
+
+    @Transactional
+    public List<String> getAllBrandStringName() {
+        return carBrandDao.getAllBrandsNames();
     }
 
     @Transactional
