@@ -17,4 +17,8 @@
     "${car.carDescription}"
     <image src="/autorent/image/wide/${car.carPicture.id}/picture.jpg" class="img-thumbnail">
 
+    <form action="/autorent/add-order/${car.brand.brandName}/${car.carModel.carModelName}/${car.cost}.view">
+        <input type="submit" value="Add to order">
+    </form>
+
 <jsp:include page="_footer.jsp"/>
