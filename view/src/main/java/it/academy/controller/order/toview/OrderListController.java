@@ -17,19 +17,19 @@ public class OrderListController {
 
     private static final int PAGE_SIZE = 10;
 
-    @GetMapping("/order-list/0.view")
+    @GetMapping("order-list/0.view")
     public ModelAndView showOrderListFirstPage() {
         return new ModelAndView(
                 "order_list",
-                Map.of("orders", orderService.listOfOrders(0,PAGE_SIZE))
+                Map.of("orders", orderService.listOfOrders(0, PAGE_SIZE))
         );
     }
 
-    @GetMapping("/order-list/${offset}.view")
+    @GetMapping("order-list/{offset}.view")
     public ModelAndView showOrderListPaginationPage(@PathVariable int offset) {
         return new ModelAndView(
                 "order_list",
-                Map.of("orders", orderService.listOfOrders(offset, PAGE_SIZE))
+                Map.of("orders", orderService.listOfOrders( offset, PAGE_SIZE))
         );
     }
 }
