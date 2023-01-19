@@ -7,8 +7,6 @@ import it.academy.model.car.Car;
 import it.academy.model.car.CarBrand;
 import it.academy.model.car.CarModel;
 import it.academy.model.car.CarPicture;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,6 +47,11 @@ public class CarService {
     @Transactional
     public Car getById(int id) {
         return carDao.findById(id);
+    }
+
+    @Transactional
+    public Car findCarByBrandModelCost(Integer cost, String brand, String model){
+        return carDao.findCarByBrandModelCost(cost, brand, model).get(0);
     }
 
 }

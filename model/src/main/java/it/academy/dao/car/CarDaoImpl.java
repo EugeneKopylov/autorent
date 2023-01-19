@@ -28,4 +28,11 @@ public class CarDaoImpl implements CarDao {
     public Car findById(int id) {
         return carRepository.getOne(id);
     }
+
+    @Override
+    public List<Car> findCarByBrandModelCost(Integer cost, String brand, String model) {
+        return carRepository.findCarByBrandModelCost(cost, brand, model);
+    }
+
+
 }

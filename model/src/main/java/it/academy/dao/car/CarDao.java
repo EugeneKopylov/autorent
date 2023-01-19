@@ -1,6 +1,7 @@
 package it.academy.dao.car;
 
 import it.academy.model.car.Car;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,4 +14,8 @@ public interface CarDao {
     void createCar(Car car);
 
     Car findById(int id);
+
+    List<Car> findCarByBrandModelCost(@Param("cost") Integer cost,
+                                      @Param("brand") String brand,
+                                      @Param("model") String model);
 }
