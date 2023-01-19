@@ -8,15 +8,13 @@
     <th>Last name</th>
     <th>Phone number</th>
     <th>email</th>
-    <th>Order list</th>
   </tr>
   <c:forEach items="${users}" var="user">
   <tr>
-    <td><c:out value="${user.firstName}"/></td>
-    <td><c:out value="${user.lastName}"/></td>
-    <td><c:out value="${user.phoneNumber}"/></td>
-    <td><c:out value="${user.email}"/></td>
-    <td><c:out value="${user.orderList}"/></td>
+    <td><c:out value="${user.userInformation.firstName}"/></td>
+    <td><c:out value="${user.userInformation.lastName}"/></td>
+    <td><c:out value="${user.userInformation.phoneNumber}"/></td>
+    <td><c:out value="${user.userInformation.email}"/></td>
   </tr>
   </c:forEach>
 </table>

@@ -1,7 +1,10 @@
 package it.academy.model.user;
 
+import it.academy.model.car.CarPicture;
 import it.academy.model.order.Order;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,6 +17,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Table(name = "t_user")
+@AllArgsConstructor
 public class User implements Serializable {
 
     private static final Long serialVersionUID = 3L;
@@ -27,18 +31,6 @@ public class User implements Serializable {
     @Column(name = "user_id")
     private int id;
 
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
-    @Column(name = "email")
-    private String email;
-
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Order> orderList;
 
@@ -50,16 +42,28 @@ public class User implements Serializable {
     )
     private Set<Role> roles;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private UserInformation userInformation;
+
+    public User(Set<Role> roles, UserInformation userInformation) {
+        this.roles = roles;
+        this.userInformation = userInformation;
+    }
+
+    public User(UserInformation userInformation) {
+        this.userInformation = userInformation;
+    }
+
+    public User() {
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", orderList='" + orderList + '\'' +
+                ", orderList=" + orderList +
                 ", roles=" + roles +
+                ", userInformation=" + userInformation +
                 '}';
     }
 }

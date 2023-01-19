@@ -2,6 +2,7 @@ package it.academy.service.user;
 
 import it.academy.dao.user.UserDao;
 import it.academy.model.user.User;
+import it.academy.model.user.UserInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,17 @@ public class UserService {
     UserDao userDao;
 
     @Transactional
-    public void addNewUser(User user) {
+    public void saveUser(User user) {
+        userDao.createUser(user);
+    }
+
+    @Transactional
+    public void addNewUser(UserInformation userInformation) {
+        User user = new User();
+        user.setUserInformation(userInformation);
+        if(userInformation.getUser() == null) {
+            user.getUserInformation().setUser(user);
+        }
         userDao.createUser(user);
     }
 
