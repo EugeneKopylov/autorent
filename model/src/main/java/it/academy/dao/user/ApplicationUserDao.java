@@ -8,5 +8,6 @@ public interface ApplicationUserDao {
 
     ApplicationUser createApplicationUser(ApplicationUser applicationUser);
     ApplicationUser findApplicationUserById(Integer applicationUserId);
+    ApplicationUser findByNickname(String nickname);
 
 }

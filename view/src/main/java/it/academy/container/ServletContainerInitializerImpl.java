@@ -1,6 +1,7 @@
 package it.academy.container;
 
 import it.academy.config.Config;
+import it.academy.security.WebSecurityConfig;
 import it.academy.service.ServiceContextConfig;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -22,6 +23,7 @@ public class ServletContainerInitializerImpl implements ServletContainerInitiali
         context.register(WebConfiguration.class);
         context.register(Config.class);
         context.register(ServiceContextConfig.class);
+        context.register(WebSecurityConfig.class);
 
         DispatcherServlet dispatcherServlet =
                 new DispatcherServlet(context);

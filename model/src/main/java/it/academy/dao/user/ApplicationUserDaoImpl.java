@@ -20,4 +20,9 @@ public class ApplicationUserDaoImpl implements ApplicationUserDao{
     public ApplicationUser findApplicationUserById(Integer applicationUserId) {
         return applicationUserRepository.findById(applicationUserId).get();
     }
+
+    @Override
+    public ApplicationUser findByNickname(String nickname) {
+        return applicationUserRepository.findByNickname(nickname);
+    }
 }
