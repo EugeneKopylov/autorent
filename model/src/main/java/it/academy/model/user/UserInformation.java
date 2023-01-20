@@ -2,12 +2,10 @@ package it.academy.model.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Getter
@@ -20,8 +18,8 @@ public class UserInformation {
     @Column(name = "f_user_id")
     @GeneratedValue(generator = "foreign_key_gen")
     @GenericGenerator(name = "foreign_key_gen",
-            strategy = "foreign",
-            parameters = @org.hibernate.annotations.Parameter(name = "property", value = "user")
+                      strategy = "foreign",
+                      parameters = @org.hibernate.annotations.Parameter(name = "property", value = "user")
     )
     private int id;
 

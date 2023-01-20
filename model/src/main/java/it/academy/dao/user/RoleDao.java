@@ -12,5 +12,9 @@ public interface RoleDao {
 
     Role createRole(Role role);
 
+    Role findRoleById(int roleId);
 
+    public Role findRoleByName(String roleName);
+
+    List<Role> findAllRoles();
 }

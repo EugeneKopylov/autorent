@@ -1,17 +1,14 @@
 package it.academy.model.user;
 
-import it.academy.model.car.CarPicture;
 import it.academy.model.order.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -34,24 +31,23 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Order> orderList;
 
-    @ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "t_user_role",
-            joinColumns = @JoinColumn(name = "f_user_id"),
-            inverseJoinColumns = @JoinColumn(name = "f_role_id")
-    )
-    private Set<Role> roles;
-
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private UserInformation userInformation;
 
-    public User(Set<Role> roles, UserInformation userInformation) {
-        this.roles = roles;
-        this.userInformation = userInformation;
-    }
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private ApplicationUser applicationUser;
 
     public User(UserInformation userInformation) {
         this.userInformation = userInformation;
+    }
+
+    public User(ApplicationUser applicationUser) {
+        this.applicationUser = applicationUser;
+    }
+
+    public User(UserInformation userInformation, ApplicationUser applicationUser) {
+        this.userInformation = userInformation;
+        this.applicationUser = applicationUser;
     }
 
     public User() {
@@ -62,7 +58,6 @@ public class User implements Serializable {
         return "User{" +
                 "id=" + id +
                 ", orderList=" + orderList +
-                ", roles=" + roles +
                 ", userInformation=" + userInformation +
                 '}';
     }

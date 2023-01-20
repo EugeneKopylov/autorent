@@ -28,11 +28,12 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/autorent/add-permission.view">Add description</a></li>
-            <li><a class="dropdown-item" href="/autorent/add-user.view">Add user</a></li>
+            <li><a class="dropdown-item" href="/autorent/add-user-information.view">Add user information</a></li>
             <li><a class="dropdown-item" href="/autorent/add-role.view">Add role</a></li>
             <li><a class="dropdown-item" href="/autorent/add-car/.view">Add car</a></li>
             <li><a class="dropdown-item" href="/autorent/add-brand.view">Add car brand</a></li>
             <li><a class="dropdown-item" href="/autorent/add-car-model.view">Add car model</a></li>
+            <li><a class="dropdown-item" href="/autorent/add-user.view">Add user</a></li>
           </ul>
         </li>
       </ul>
