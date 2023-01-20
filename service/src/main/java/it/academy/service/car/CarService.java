@@ -40,8 +40,8 @@ public class CarService {
     }
 
     @Transactional
-    public List<Car> listOfCars(int pageNumber, int pageSize) {
-        return carDao.findAllCars(pageNumber, pageSize);
+    public List<Car> listOfCarsWithPagination(int pageNumber, int pageSize) {
+        return carDao.findAllCarsWithPagination(pageNumber, pageSize);
     }
 
     @Transactional
@@ -52,6 +52,11 @@ public class CarService {
     @Transactional
     public Car findCarByBrandModelCost(Integer cost, String brand, String model){
         return carDao.findCarByBrandModelCost(cost, brand, model).get(0);
+    }
+
+    @Transactional
+    public List<Car> getAllCars(){
+        return carDao.findAllCars();
     }
 
 }

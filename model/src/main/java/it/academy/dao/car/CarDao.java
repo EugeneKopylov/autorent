@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface CarDao {
 
-    List<Car> findAllCars(int pageNumber, int pageSize);
+    List<Car> findAllCarsWithPagination(int pageNumber, int pageSize);
 
     void createCar(Car car);
 
@@ -18,4 +18,6 @@ public interface CarDao {
     List<Car> findCarByBrandModelCost(@Param("cost") Integer cost,
                                       @Param("brand") String brand,
                                       @Param("model") String model);
+
+    List<Car> findAllCars();
 }

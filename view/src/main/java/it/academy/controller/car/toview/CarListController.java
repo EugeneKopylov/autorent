@@ -1,8 +1,6 @@
 package it.academy.controller.car.toview;
 
 import it.academy.api.mapper.Mapper;
-import it.academy.model.car.Car;
-import it.academy.model.car.CarPicture;
 import it.academy.service.car.CarService;
 import it.academy.service.car.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +33,7 @@ public class CarListController {
     public ModelAndView showCarList() {
         return new ModelAndView(
                 "car_list",
-                Map.of("cars", carService.listOfCars(0, PAGE_SIZE).stream().map(mapper::toDto).collect(toList()))
+                Map.of("cars", carService.listOfCarsWithPagination(0, PAGE_SIZE).stream().map(mapper::toDto).collect(toList()))
         );
     }
 
@@ -43,7 +41,7 @@ public class CarListController {
     public ModelAndView getCarsWithPagination(@PathVariable int offset) {
         return new ModelAndView(
                 "car_list",
-                Map.of("cars", carService.listOfCars(offset, PAGE_SIZE).stream().map(mapper::toDto).collect(toList()))
+                Map.of("cars", carService.listOfCarsWithPagination(offset, PAGE_SIZE).stream().map(mapper::toDto).collect(toList()))
         );
     }
 

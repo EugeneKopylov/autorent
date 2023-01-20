@@ -15,7 +15,7 @@ public class CarDaoImpl implements CarDao {
     CarRepository carRepository;
 
     @Override
-    public List<Car> findAllCars(int pageNumber, int pageSize) {
+    public List<Car> findAllCarsWithPagination(int pageNumber, int pageSize) {
         return carRepository.findAll(PageRequest.of(pageNumber, pageSize)).getContent();
     }
 
@@ -34,5 +34,8 @@ public class CarDaoImpl implements CarDao {
         return carRepository.findCarByBrandModelCost(cost, brand, model);
     }
 
-
+    @Override
+    public List<Car> findAllCars() {
+        return carRepository.findAll();
+    }
 }
