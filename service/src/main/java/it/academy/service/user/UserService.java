@@ -53,6 +53,8 @@ public class UserService {
         User user = new User();
         Role role = roleDao.findRoleByName(roleName);
         applicationUser.setRole(role);
+        String pas = applicationUser.getPassword();
+        applicationUser.setPassword("{noop}" + pas);
 
         user.setApplicationUser(applicationUser);
         if(applicationUser.getUser() == null) {
