@@ -70,17 +70,30 @@
     "${brand}"
     "${branded}"
 
-    <div class="mb-3">
-     <label for="bodyType" class="form-label">Body Type</label>
-     <input type="text" name="bodyType" class="form-control" id="bodyType" aria-describedby="bodyHelp">
-     <div id="bodyHelp" class="form-text">Enter body type</div>
-    </div>
+     <div class="mb-3">
+     <label for="bodyType">Choose a car body type:</label>
+     <select class="form-select" id="bodyType" name="bodyType">
+       <option value="SEDAN">SEDAN</option>
+       <option value="HATCBACK">HATCHBACK</option>
+       <option value="SUV">SUV</option>
+       <option value="COUPE">COUPE</option>
+       <option value="STATION WAGON">STATION WAGON</option>
+       <option value="CONVERTIBLE">CONVERTIBLE</option>
+       <option value="MINIVAN">MINIVAN</option>
+       <option value="PICKUP TRUCK">PICKUP TRUCK</option>
+     </select>
+     </div>
+
   <!-- gearbox -->
-    <div class="mb-3">
-     <label for="gearbox" class="form-label">gearbox</label>
-     <input type="text" name="gearbox" class="form-control" id="gearbox" aria-describedby="gearboxHelp">
-     <div id="gearboxHelp" class="form-text">Enter gearbox</div>
-    </div>
+     <div class="mb-3">
+     <label for="gearbox">Choose a gearbox type:</label>
+     <select class="form-select" id="gearbox" name="gearbox">
+       <option value="MANUAL">MANUAL</option>
+       <option value="ROBOT">ROBOT</option>
+       <option value="AUTO">AUTO</option>
+     </select>
+     </div>
+
   <!-- yearOfProd -->
    <div class="mb-3">
        <label for="yearOfProd" class="form-label">Year of production</label>
@@ -89,10 +102,12 @@
    </div>
    <!-- fuelType -->
    <div class="mb-3">
-       <label for="fuelType" class="form-label">Fuel Type</label>
-       <input type="text" name="fuelType" class="form-control" id="fuelType" aria-describedby="fuelHelp">
-       <div id="fuelHelp" class="form-text">Enter fuel type</div>
-   </div>
+     <label for="fuelType">Choose a fuel type:</label>
+     <select class="form-select" id="fuelType" name="fuelType">
+       <option value="PETROL">PETROL</option>
+       <option value="DIESEL">DIESEL</option>
+       <option value="ELECTRIC">ELECTRIC</option>
+     </select>
    <!-- engineCapacity -->
    <div class="mb-3">
        <label for="engineCapacity" class="form-label">Engine Capacity</label>

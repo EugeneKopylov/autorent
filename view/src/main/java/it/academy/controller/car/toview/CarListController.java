@@ -5,6 +5,7 @@ import it.academy.service.car.CarService;
 import it.academy.service.car.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,7 +29,6 @@ public class CarListController {
 
     private static final int PAGE_SIZE = 2;
 
-    //тут уже будет carDto?
     @GetMapping("/car-list/0.view")
     public ModelAndView showCarList() {
         return new ModelAndView(
@@ -38,7 +38,8 @@ public class CarListController {
     }
 
     @GetMapping("car-list/{offset}.view")
-    public ModelAndView getCarsWithPagination(@PathVariable int offset) {
+    public ModelAndView getCarsWithPagination(@PathVariable int offset, Model model) {
+        model.addAttribute("offset", Integer.valueOf(offset));
         return new ModelAndView(
                 "car_list",
                 Map.of("cars", carService.listOfCarsWithPagination(offset, PAGE_SIZE).stream().map(mapper::toDto).collect(toList()))

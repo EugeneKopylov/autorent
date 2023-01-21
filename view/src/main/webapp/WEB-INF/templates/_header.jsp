@@ -52,10 +52,6 @@
             <security:authorize access="!isAuthenticated()">
               <a class="nav-link disabled">Welcome&nbsp;anonymous</a>
             </security:authorize>
-      <form class="d-flex" role="search" action="/hello/search.do" method="post">
-        <input class="form-control me-2" type="search" name="pname" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
