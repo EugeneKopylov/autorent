@@ -3,6 +3,8 @@ INSERT INTO `auto_rent`.`t_role` (`role_id`, `role_desc`, `role_name`) VALUES ('
 
 INSERT INTO `auto_rent`.`t_user` (`user_id`) VALUES ('1');
 INSERT INTO `auto_rent`.`t_user` (`user_id`) VALUES ('2');
+INSERT INTO `auto_rent`.`t_user_information` (`f_user_id`, `first_name`) VALUES ('1', 'first');
+INSERT INTO `auto_rent`.`t_user_information` (`f_user_id`, `first_name`) VALUES ('2', 'second');
 
 INSERT INTO `auto_rent`.`t_permission` (`id`, `desc_perm`, `role_id`) VALUES ('1', 'no used ', '1');
 INSERT INTO `auto_rent`.`t_permission` (`id`, `desc_perm`, `role_id`) VALUES ('2', 'no used', '2');
