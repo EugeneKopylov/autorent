@@ -21,6 +21,18 @@
     </form>
     </security:authorize>
 
+    <security:authorize access="hasRole('ADMIN')">
+    <form method="post" action="/autorent/delete-car/${car.brand.brandName}/${car.carModel.carModelName}/${car.cost}.action">
+        <input type="submit" value="Delete car">
+    </form>
+    </security:authorize>
+
+    <security:authorize access="hasRole('ADMIN')">
+    <form action="/autorent/update-car/${car.brand.brandName}/${car.carModel.carModelName}/${car.cost}.view">
+        <input type="submit" value="Update car">
+    </form>
+    </security:authorize>
+
     <security:authorize access="!isAuthenticated()">
         <a href="${pageContext.request.contextPath}/login">please login to place an order</a>
     </security:authorize>

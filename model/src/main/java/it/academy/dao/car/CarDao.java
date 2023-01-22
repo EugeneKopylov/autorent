@@ -11,6 +11,8 @@ public interface CarDao {
 
     List<Car> findAllCarsWithPagination(int pageNumber, int pageSize);
 
+    void deleteCar(Car car);
+
     void createCar(Car car);
 
     Car findById(int id);

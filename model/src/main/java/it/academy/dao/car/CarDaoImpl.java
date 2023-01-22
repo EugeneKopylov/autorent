@@ -20,6 +20,11 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
+    public void deleteCar(Car car) {
+        carRepository.delete(car);
+    }
+
+    @Override
     public void createCar(Car car) {
         carRepository.save(car);
     }

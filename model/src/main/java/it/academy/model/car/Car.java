@@ -32,10 +32,6 @@ public class Car implements Serializable {
     @JoinColumn(name = "f_brand_id")
     private CarBrand brand;
 
-    //todo переделать под ManyToMany
-/*    ManyToOne
-    @JoinColumn(name = "f_model_id")
-    private CarModel carModel;*/
     @ManyToOne
     @JoinColumn(name = "f_model_id")
     private CarModel carModel;

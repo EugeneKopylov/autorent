@@ -4,7 +4,7 @@
 
 <table style="width:100%" class="table">
   <tr>
-    <th>Brand and Model"${offset}"</th>
+    <th>Brand and Model</th>
     <th>Gearbox</th>
     <th>Year of production</th>
     <th>Cost per day</th>
@@ -22,7 +22,8 @@
   </tr>
   </c:forEach>
 </table>
-
-<p><a href="/autorent/car-list/"+1".view">next page</a></p>
+${previousPage}
+${nextPage}
+<p><a href="/autorent/car-list/${previousPage}.view">previous page</a></p><p><a href="/autorent/car-list/${nextPage}.view">next page</a></p>
 
 <jsp:include page="_footer.jsp"/>
