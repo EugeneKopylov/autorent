@@ -1,8 +1,8 @@
 package it.academy.controller.car.toaction;
 
-import it.academy.api.dto.car.CarCreationDto;
-import it.academy.api.mapper.BrandModelMapper;
-import it.academy.api.mapper.Mapper;
+import it.academy.dtos.dto.car.CarCreationDto;
+import it.academy.dtos.mapper.BrandModelMapper;
+import it.academy.dtos.mapper.Mapper;
 import it.academy.model.car.CarBrand;
 import it.academy.service.car.BrandModelService;
 import it.academy.service.car.CarService;

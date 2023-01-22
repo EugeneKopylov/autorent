@@ -1,7 +1,7 @@
-package it.academy.api.mapper;
+package it.academy.dtos.mapper;
 
-import it.academy.api.dto.car.CarCreationDto;
-import it.academy.api.dto.car.CarDto;
+import it.academy.dtos.dto.car.CarCreationDto;
+import it.academy.dtos.dto.car.CarDto;
 import it.academy.model.car.Car;
 import it.academy.model.car.CarBrand;
 import it.academy.model.car.CarModel;

@@ -1,7 +1,7 @@
 package it.academy.controller.car.toview;
 
-import it.academy.api.dto.car.CarDto;
-import it.academy.api.mapper.Mapper;
+import it.academy.dtos.dto.car.CarDto;
+import it.academy.dtos.mapper.Mapper;
 import it.academy.service.car.CarService;
 import it.academy.service.car.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;

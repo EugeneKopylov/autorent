@@ -1,6 +1,6 @@
-package it.academy.api.mapper;
+package it.academy.dtos.mapper;
 
-import it.academy.api.dto.car.BrandModelDto;
+import it.academy.dtos.dto.car.BrandModelDto;
 import it.academy.model.car.CarBrand;
 import it.academy.model.car.CarModel;
 import org.springframework.stereotype.Component;

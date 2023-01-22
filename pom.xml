@@ -131,10 +131,11 @@
                 <artifactId>spring-security-taglibs</artifactId>
                 <version>${spring.security.version}</version>
             </dependency>
-
-
-
-
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>6.2.0.Final</version>
+            </dependency>
                 <!-- Spring -->
 
                 <dependency>

@@ -1,4 +1,4 @@
-package it.academy.api.dto.car;
+package it.academy.dtos.dto.car;
 
 import java.util.List;
 

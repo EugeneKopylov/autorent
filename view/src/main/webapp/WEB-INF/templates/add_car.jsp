@@ -97,7 +97,7 @@
   <!-- yearOfProd -->
    <div class="mb-3">
        <label for="yearOfProd" class="form-label">Year of production</label>
-       <input type="text" name="yearOfProd" class="form-control" id="yearOfProd" aria-describedby="yearOfProdHelp">
+       <input type="number" name="yearOfProd" class="form-control" id="yearOfProd" aria-describedby="yearOfProdHelp" min="1900" max="2023" required>
        <div id="yearOfProdHelp" class="form-text">Enter year of production</div>
    </div>
    <!-- fuelType -->
@@ -117,7 +117,7 @@
    <!-- cost -->
    <div class="mb-3">
        <label for="cost" class="form-label">Cost</label>
-       <input type="text" name="cost" class="form-control" id="cost" aria-describedby="costHelp">
+       <input type="number" name="cost" class="form-control" id="cost" aria-describedby="costHelp" min="5" max="5000" required>
        <div id="costHelp" class="form-text">Enter cost</div>
    </div>
    <!-- carDescription -->
