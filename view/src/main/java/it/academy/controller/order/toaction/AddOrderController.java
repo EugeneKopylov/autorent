@@ -37,6 +37,6 @@ public class AddOrderController {
                            @PathVariable String price) {
         String nickname = SecurityContextHolder.getContext().getAuthentication().getName();
         orderService.addNewOrder(order, price, brand, model, nickname);
-        return "redirect:/order-list/0.view";
+        return "redirect:/order-list.view";
     }
 }

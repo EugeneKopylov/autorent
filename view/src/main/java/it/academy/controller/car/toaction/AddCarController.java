@@ -1,11 +1,9 @@
 package it.academy.controller.car.toaction;
 
-import it.academy.api.dto.car.BrandModelDto;
 import it.academy.api.dto.car.CarCreationDto;
 import it.academy.api.mapper.BrandModelMapper;
 import it.academy.api.mapper.Mapper;
 import it.academy.model.car.CarBrand;
-import it.academy.model.car.CarModel;
 import it.academy.service.car.BrandModelService;
 import it.academy.service.car.CarService;
 import lombok.SneakyThrows;
@@ -17,12 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.xml.bind.Element;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
-import static java.util.stream.Collectors.toList;
 
 @Scope("session")
 @SessionAttributes("branded")

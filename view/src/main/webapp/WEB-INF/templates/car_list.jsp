@@ -22,8 +22,6 @@
   </tr>
   </c:forEach>
 </table>
-${previousPage}
-${nextPage}
 <p><a href="/autorent/car-list/${previousPage}.view">previous page</a></p><p><a href="/autorent/car-list/${nextPage}.view">next page</a></p>
 
 <jsp:include page="_footer.jsp"/>

@@ -2,15 +2,11 @@ package it.academy.api.mapper;
 
 import it.academy.api.dto.car.CarCreationDto;
 import it.academy.api.dto.car.CarDto;
-import it.academy.dao.car.CarBrandDao;
-import it.academy.dao.car.CarModelDao;
 import it.academy.model.car.Car;
 import it.academy.model.car.CarBrand;
 import it.academy.model.car.CarModel;
 import it.academy.model.car.CarPicture;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class Mapper {

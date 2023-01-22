@@ -2,6 +2,7 @@ package it.academy.service.user;
 
 import it.academy.dao.user.RoleDao;
 import it.academy.dao.user.UserDao;
+import it.academy.dao.user.UserInformationDao;
 import it.academy.model.user.ApplicationUser;
 import it.academy.model.user.Role;
 import it.academy.model.user.User;
@@ -21,6 +22,9 @@ public class UserService {
 
     @Autowired
     RoleDao roleDao;
+
+    @Autowired
+    UserInformationDao userInformationDao;
 
     @Transactional
     public void saveUser(User user) {
@@ -70,6 +74,27 @@ public class UserService {
             roleNames.add(role.getRoleName());
         };
         return  roleNames;
+    }
+
+    @Transactional
+    public void addCustomerUser(UserInformation userInformation, ApplicationUser applicationUser, User user) {
+        Role role = roleDao.findRoleByName("user");
+        applicationUser.setRole(role);
+        String pas = applicationUser.getPassword();
+        applicationUser.setPassword("{noop}" + pas);
+
+        user.setApplicationUser(applicationUser);
+        if(applicationUser.getUser() == null) {
+            user.getApplicationUser().setUser(user);
+        }
+
+        user.setUserInformation(userInformation);
+        if(userInformation.getUser() == null) {
+            user.getUserInformation().setUser(user);
+        }
+
+        userDao.createUser(user);
+
     }
 
 }

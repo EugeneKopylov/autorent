@@ -28,13 +28,14 @@
             Select action
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/autorent/add-permission.view">Add description</a></li>
-            <li><a class="dropdown-item" href="/autorent/add-user-information.view">Add user information</a></li>
-            <security:authorize access="hasRole('ADMIN')"><li><a class="dropdown-item" href="/autorent/add-role.view">Add role</a></li></security:authorize>
+      <!--      <li><a class="dropdown-item" href="/autorent/add-permission.view">Add description</a></li>   -->
+        <!--    <li><a class="dropdown-item" href="/autorent/add-user-information.view">Add user information</a></li>   -->
+        <!--    <security:authorize access="hasRole('ADMIN')"><li><a class="dropdown-item" href="/autorent/add-role.view">Add role</a></li></security:authorize>  -->
             <security:authorize access="hasRole('ADMIN')"><li><a class="dropdown-item" href="/autorent/add-car/.view">Add car</a></li></security:authorize>
             <security:authorize access="hasRole('ADMIN')"><li><a class="dropdown-item" href="/autorent/add-brand.view">Add car brand</a></li></security:authorize>
             <security:authorize access="hasRole('ADMIN')"><li><a class="dropdown-item" href="/autorent/add-car-model.view">Add car model</a></li></security:authorize>
             <security:authorize access="hasRole('ADMIN')"><li><a class="dropdown-item" href="/autorent/add-user.view">Add user</a></li></security:authorize>
+            <security:authorize access="hasRole('USER')"><li><a class="dropdown-item" href="/autorent/order-list.view">My orders</a></li></security:authorize>
           </ul>
         </li>
                 <li class="nav-item">
@@ -51,6 +52,9 @@
             </security:authorize>
             <security:authorize access="!isAuthenticated()">
               <a class="nav-link disabled">Welcome&nbsp;anonymous</a>
+            </security:authorize>
+            <security:authorize access="!isAuthenticated()">
+              <a href="/autorent/registration.view">Registration</a>
             </security:authorize>
     </div>
   </div>

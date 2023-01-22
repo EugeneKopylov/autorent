@@ -28,71 +28,6 @@ import java.util.Properties;
 @ComponentScan(basePackages = "it.academy")
 public class Config {
 
-    /*@Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Properties hibernateProperties) {
-        System.out.println("loading config");
-        final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(dataSource);
-        em.setPackagesToScan("it.academy.model");
-
-        final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        em.setJpaVendorAdapter(vendorAdapter);
-        hibernateProperties.put(Environment.SHOW_SQL, "true");
-        hibernateProperties.put(Environment.FORMAT_SQL, "true");
-        hibernateProperties.put(Environment.DEFAULT_SCHEMA, "auto_rent");
-        hibernateProperties.put(Environment.HBM2DDL_AUTO, "update");
-        hibernateProperties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
-        hibernateProperties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-        em.setJpaProperties(hibernateProperties);
-
-        return em;
-    }
-
-    @Bean
-    public DataSource dataSource(
-            @Value("${url}") String url,
-            @Value("${driver}") String driverClassName,
-            @Value("root") String userName,
-            @Value("${password}") String password
-    ){
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(driverClassName);
-        dataSource.setUrl(url);
-        dataSource.setUsername(userName);
-        dataSource.setPassword(password);
-        return dataSource;
-    }
-
-    @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory);
-
-        return transactionManager;
-    }
-
-    @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
-        return new PersistenceExceptionTranslationPostProcessor();
-    }
-
-    @Bean
-    public Properties hibernateProperties(
-            @Value("${hibernate.show_sql}") String showSql,
-            @Value("true") String debug,
-            @Value("${hibernate.dialect}") String dialect,
-            @Value("${hibernate.format_sql}") String format
-    ) {
-
-        Properties hibernateProperties = new Properties();
-        hibernateProperties.put("hibernate.show_sql", showSql);
-        hibernateProperties.put("debug", debug);
-        hibernateProperties.put("hibernate.dialect", dialect);
-        hibernateProperties.put("hibernate.format_sql", format);
-
-        return hibernateProperties;
-    }*/
-
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -144,7 +79,6 @@ public class Config {
         properties.put(Environment.HBM2DDL_AUTO, "update");
         properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
         properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-        //todo поробовать решить проблему иным путем
         properties.put(Environment.ENABLE_LAZY_LOAD_NO_TRANS, "true");
 
         return properties;

@@ -39,14 +39,12 @@ public class Car implements Serializable {
     @Column(name = "body_type")
     private String bodyType;
 
-    //todo - тоже можно в отельную
     @Column(name = "gearbox")
     private String gearbox;
 
     @Column(name = "year_of_prod")
     private Integer yearOfProd;
 
-    //todo - двигатель и тип топлива можно в отдельную таблицу
     @Column(name = "fuel_type")
     private String fuelType;
 
@@ -59,10 +57,6 @@ public class Car implements Serializable {
     @Column(name = "car_description")
     private String carDescription;
 
-/*    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private CarPicture carPicture;*/
-
-    //todo у машины должно быть много картинок
     @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private CarPicture carPicture;
 
@@ -100,8 +94,6 @@ public class Car implements Serializable {
     public String toString() {
         return "Car{" +
                 "id=" + id +
- //               ", brand='" + brand + '\'' +
-//                ", model='" + carModel + '\'' +
                 ", bodyType='" + bodyType + '\'' +
                 ", gearbox='" + gearbox + '\'' +
                 ", yearOfProd=" + yearOfProd +
@@ -109,7 +101,6 @@ public class Car implements Serializable {
                 ", engineCapacity='" + engineCapacity + '\'' +
                 ", cost=" + cost +
                 ", carDescription='" + carDescription + '\'' +
-//                ", carPicture=" + carPicture +
                 '}';
 
 

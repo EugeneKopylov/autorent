@@ -4,11 +4,9 @@ import it.academy.model.car.CarBrand;
 import it.academy.model.car.CarModel;
 import it.academy.repository.car.CarBrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,7 +52,6 @@ public class CarBrandDaoImpl implements CarBrandDao {
 
     @Override
     public List<String> getAllModelByBrandStringNames(CarBrand carBrand) {
-        //List<String> listOfModelStringNames = carBrand.getCarModels().stream().map(CarModel::getCarModelName).collect(Collectors.toList());
         return carBrand.getCarModels().stream().map(CarModel::getCarModelName).collect(Collectors.toList());
     }
 

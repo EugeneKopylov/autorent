@@ -3,6 +3,7 @@ package it.academy.service.order;
 import it.academy.dao.car.CarDao;
 import it.academy.dao.order.OrderDao;
 import it.academy.dao.user.ApplicationUserDao;
+import it.academy.dao.user.UserDao;
 import it.academy.model.order.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,9 @@ public class OrderService {
     @Autowired
     ApplicationUserDao applicationUserDao;
 
+    @Autowired
+    UserDao userDao;
+
     @Transactional
     public void addNewOrder(Order order, String price, String brand, String model, String nickname) {
         order.setUser(applicationUserDao.findByNickname(nickname).getUser());
@@ -43,6 +47,11 @@ public class OrderService {
     @Transactional
     public List listOfOrders(int pageNumber, int pageSize) {
         return orderDao.findAllOrders(pageNumber,pageSize);
+    }
+
+    @Transactional
+    public List<Order> listOfUserOrders(String nickname) {
+        return applicationUserDao.findByNickname(nickname).getUser().getOrderList();
     }
 
 }

@@ -99,15 +99,6 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
         </dependency>
-
-
-<!--
-        <dependency>
-            <groupId>it.academy</groupId>
-            <artifactId>service</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>-->
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -145,56 +136,14 @@
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
         </dependency>
-
-
-
-
-
-
-
-
-        <!--        Hibernate-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
         </dependency>
-
-
-
-
     </dependencies>
 
     <build>
         <plugins>
-<!--            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>3.10.3</version>
-                <executions>
-                    <execution>
-                        <id>Update DB</id>
-                        <configuration>
-                            <propertyFile>src/main/resources/jdbc.properties</propertyFile>
-                            <changeLogFile>src/main/resources/changelog-master.xml</changeLogFile>
-                        </configuration>
-                        <goals>
-                            <goal>update</goal>
-                        </goals>
-                        <phase>process-resources</phase>
-                    </execution>
-                    <execution>
-                        <id>Update test DB</id>
-                        <configuration>
-                            <propertyFile>src/test/resources/test.jdbc.properties</propertyFile>
-                            <changeLogFile>src/main/resources/changelog-master.xml</changeLogFile>
-                        </configuration>
-                        <goals>
-                            <goal>update</goal>
-                        </goals>
-                        <phase>process-resources</phase>
-                    </execution>
-                </executions>
-            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
