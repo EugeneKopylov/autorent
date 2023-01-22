@@ -60,6 +60,12 @@ public class UserService {
         String pas = applicationUser.getPassword();
         applicationUser.setPassword("{noop}" + pas);
 
+        UserInformation userInformation = new UserInformation();
+        user.setUserInformation(userInformation);
+        if(userInformation.getUser() == null) {
+            user.getUserInformation().setUser(user);
+        }
+
         user.setApplicationUser(applicationUser);
         if(applicationUser.getUser() == null) {
             user.getApplicationUser().setUser(user);
