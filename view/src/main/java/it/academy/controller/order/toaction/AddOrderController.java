@@ -27,6 +27,7 @@ public class AddOrderController {
         modelPage.addAttribute("brand", brand);
         modelPage.addAttribute("model", model);
         modelPage.addAttribute("price", price);
+        modelPage.addAttribute("order", orderService.getBookingDateForCar(brand,model,price));
         return new ModelAndView("add_order");
     }
 
