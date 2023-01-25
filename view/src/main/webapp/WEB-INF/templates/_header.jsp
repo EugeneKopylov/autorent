@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>autorent</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{static/css/main.css}" type="text/css" />
   </head>
   <body>
 
@@ -21,7 +22,7 @@
           <a class="nav-link active" aria-current="page" href="/autorent/index.view">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/autorent/car-list/0.view">Car list</a>
+          <a class="nav-link" href="/autorent/car-list/off0pgs3.view">Car list</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

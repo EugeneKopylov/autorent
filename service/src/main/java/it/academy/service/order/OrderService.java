@@ -33,18 +33,20 @@ public class OrderService {
 
     @Transactional
     public void addNewOrder(Order order, String price, String brand, String model, String nickname) {
+        LocalDate localDateFrom = LocalDate.parse(order.getOrderDateFrom(), DateTimeFormatter.ofPattern("d/M/yyyy"));
+        LocalDate localDateTo = LocalDate.parse(order.getOrderDateTo(), DateTimeFormatter.ofPattern("d/M/yyyy"));
+        if (localDateFrom.isAfter(localDateTo)) {
+            throw new IllegalArgumentException("Date From must be after Date To");
+        }
         order.setUser(applicationUserDao.findByNickname(nickname).getUser());
         order.setDate(LocalDateTime.now());
         order.setCar(carDao.findCarByBrandModelCost(Integer.valueOf(price), brand, model).get(0));
         order.setCost(
                 Integer.parseInt(price) *
-                        ((int) ChronoUnit.DAYS.between(
-                        LocalDate.parse(order.getOrderDateFrom(), DateTimeFormatter.ofPattern("d/M/yyyy")),
-                        LocalDate.parse(order.getOrderDateTo(), DateTimeFormatter.ofPattern("d/M/yyyy"))
-                ) == 0 ? 1 : (int) ChronoUnit.DAYS.between(
-                                LocalDate.parse(order.getOrderDateFrom(), DateTimeFormatter.ofPattern("d/M/yyyy")),
-                                LocalDate.parse(order.getOrderDateTo(), DateTimeFormatter.ofPattern("d/M/yyyy"))
-        )));
+                        ((int) ChronoUnit.DAYS.between(localDateFrom, localDateTo) == 0 ? 1 :
+                                (int) ChronoUnit.DAYS.between(localDateFrom, localDateTo)
+                        )
+        );
         orderDao.createOrder(order);
     }
 
@@ -75,7 +77,7 @@ public class OrderService {
             date.append("\"").append(localDateFrom.format(DateTimeFormatter.ofPattern("d/M/yyyy"))).append("\",");
         }
 
-        return (date.length() == 0) ? "not ordered for yet" : date.deleteCharAt(date.length() - 1).toString();
+        return (date.length() == 0) ? LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("d/M/yyyy")) : date.deleteCharAt(date.length() - 1).toString();
     }
 
 }

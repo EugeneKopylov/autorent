@@ -1,6 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 <jsp:include page="_header.jsp"/>
 <h1>All cars</h1>
+
+        <select align="right" style="width:5%" onchange="window.location.href = this.options[this.selectedIndex].value">
+        	<option value="${pageSize}">number of cars on page</option>
+        	<option value="/autorent/car-list/off0pgs3.view">3</option>
+        	<option value="/autorent/car-list/off0pgs5.view">5</option>
+        	<option value="/autorent/car-list/off0pgs7.view">7</option>
+        	<option value="/autorent/car-list/off0pgs10.view">10</option>
+        </select>
 
 <table style="width:100%" class="table">
   <tr>
@@ -22,6 +31,6 @@
   </tr>
   </c:forEach>
 </table>
-<p><a href="/autorent/car-list/${previousPage}.view">previous page</a></p><p><a href="/autorent/car-list/${nextPage}.view">next page</a></p>
+<p><a href=${previousPageHref}>previous page</a></p><p><a href=${nextPageHref}>next page</a></p>
 
 <jsp:include page="_footer.jsp"/>

@@ -4,6 +4,7 @@ import it.academy.model.car.Car;
 import it.academy.repository.car.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,6 +18,11 @@ public class CarDaoImpl implements CarDao {
     @Override
     public List<Car> findAllCarsWithPagination(int pageNumber, int pageSize) {
         return carRepository.findAll(PageRequest.of(pageNumber, pageSize)).getContent();
+    }
+
+    @Override
+    public List<Car> findAllCarsWithPaginationAndSort(int pageNumber, int pageSize, Sort sort) {
+        return carRepository.findAll(PageRequest.of(pageNumber, pageSize, sort)).getContent();
     }
 
     @Override

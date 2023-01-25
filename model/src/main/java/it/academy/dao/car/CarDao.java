@@ -1,6 +1,7 @@
 package it.academy.dao.car;
 
 import it.academy.model.car.Car;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +11,8 @@ import java.util.List;
 public interface CarDao {
 
     List<Car> findAllCarsWithPagination(int pageNumber, int pageSize);
+
+    List<Car> findAllCarsWithPaginationAndSort(int pageNumber, int pageSize, Sort sort);
 
     void deleteCar(Car car);
 

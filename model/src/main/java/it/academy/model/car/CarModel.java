@@ -30,8 +30,8 @@ public class CarModel {
     @JoinColumn(name = "f_brand_id")
     private CarBrand brand;
 
-    @OneToMany(mappedBy = "carModel")
-    private List<Car> cars;
+/*    @OneToMany(mappedBy = "carModel")
+    private List<Car> cars;*/
 
     @Column(name = "car_model_name")
     private String carModelName;

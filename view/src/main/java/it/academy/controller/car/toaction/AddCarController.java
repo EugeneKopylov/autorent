@@ -9,6 +9,7 @@ import it.academy.service.car.CarService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @Scope("session")
 @SessionAttributes("branded")
+@Secured(value = {"ROLE_ADMIN"})
 @Controller
 public class AddCarController {
 

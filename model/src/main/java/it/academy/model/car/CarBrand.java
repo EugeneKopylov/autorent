@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,8 +30,8 @@ public class CarBrand {
     @Column(name = "brand_name")
     private String brandName;
 
-    @OneToMany(mappedBy = "brand")
-    private List<CarModel> carModels;
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<CarModel> carModels = new ArrayList<>();
 
     @Override
     public String toString() {

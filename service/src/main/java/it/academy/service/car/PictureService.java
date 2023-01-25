@@ -12,8 +12,11 @@ public class PictureService {
     @Autowired
     CarPictureDao carPictureDao;
 
+    @Autowired
+    CarService carService;
+
     @Transactional
     public CarPicture getCarPictureById(int carPictureId) {
-        return carPictureDao.getCarPicture(carPictureId);
+        return carService.getById(carPictureId).getCarPicture();//carPictureDao.getCarPicture(carPictureId);
     }
 }

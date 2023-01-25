@@ -78,8 +78,8 @@ public class Config {
         properties.put(Environment.DEFAULT_SCHEMA, "auto_rent");
         properties.put(Environment.HBM2DDL_AUTO, "update");
         properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
-        properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-        properties.put(Environment.ENABLE_LAZY_LOAD_NO_TRANS, "true");
+        //properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+        properties.put(Environment.ENABLE_LAZY_LOAD_NO_TRANS, "false");
 
         return properties;
     }

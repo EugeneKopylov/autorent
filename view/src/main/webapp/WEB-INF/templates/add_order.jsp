@@ -29,7 +29,7 @@ You are ordering "${brand}" "${model}" "${price}"
     				var m = datef.getMonth(), d = datef.getDate(), y = datef.getFullYear();
 
     				for (i = 0; i < disabledDays.length; i++) {
-    					if(ArrayContains(disabledDays,d + '/' + (m+1) + '/' + y) || new Date() > datef) {
+    					if(ArrayContains(disabledDays,d + '/' + (m+1) + '/' + y) || new Date(Date.now()-86400000) > datef) {
     						return [false];
     					}
     				}
@@ -74,7 +74,7 @@ You are ordering "${brand}" "${model}" "${price}"
                     var m = datet.getMonth(), d = datet.getDate(), y = datet.getFullYear();
                     //console.log('Checking (raw): ' + m + '-' + d + '-' + y);
                     for (i = 0; i < disabledDays.length; i++) {
-                        if(ArrayContains(disabledDays,d + '/' + (m+1) + '/' + y) || new Date() > datet) {
+                        if(ArrayContains(disabledDays,d + '/' + (m+1) + '/' + y) || new Date(Date.now()-86400000) > datet) {
                             return [false];
                         }
                     }
@@ -99,7 +99,7 @@ You are ordering "${brand}" "${model}" "${price}"
 
                 jQuery(document).ready(function() {
                     jQuery('#datet').datepicker({
-                        minDate: new Date(dar),
+                        minDate: new Date(),
                         maxDate: new Date(2043, 5, 31),
                         dateFormat: 'd/m/yy',
                         constrainInput: true,
@@ -113,8 +113,8 @@ You are ordering "${brand}" "${model}" "${price}"
 
         <script>
             function isOk() {
-                const fromD = new Date(&quote;edocument.getElementById("datef").value&quote;);
-                const toD = new Date (&quote;document.getElementById("datet").value&quote;);
+                const fromD = new Date("04/25/2023");
+                const toD = new Date ("03/25/2023");
                 if(fromD > toD) status.innerHTML = "incorrect date values";
                     else toSub.submit();
             }

@@ -22,7 +22,7 @@ public class CarPicture implements Serializable {
     )
     private int id;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne
     @PrimaryKeyJoinColumn
     private Car car;
 
