@@ -24,12 +24,17 @@ public class CarBrandDaoImpl implements CarBrandDao {
     }
 
     @Override
+    public void deleteBrandByName(String brandName) {
+        carBrandRepository.delete(carBrandRepository.findByBrandName(brandName).get(0));
+    }
+
+
+
+    @Override
     public List<String> getAllBrandsNames() {
         List<CarBrand> carBrands = carBrandRepository.findAll();
         List<String> test = new ArrayList<>();
         for (CarBrand carBrand : carBrands) {
-            System.out.println("car brands from implementation");
-            System.out.println(carBrand);
             test.add(carBrand.getBrandName());
         }
         return test;

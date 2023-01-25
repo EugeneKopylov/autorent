@@ -10,6 +10,7 @@ import java.util.List;
 public interface CarBrandDao {
 
     void createBrand(String brandName);
+    void deleteBrandByName(String brandName);
     CarBrand getCarBrandById(Integer idBrand);
     List<CarBrand> getAllBrands();
     List<String> getAllBrandsNames();

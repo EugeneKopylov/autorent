@@ -80,4 +80,9 @@ public class OrderService {
         return (date.length() == 0) ? LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("d/M/yyyy")) : date.deleteCharAt(date.length() - 1).toString();
     }
 
+    @Transactional
+    public Order getOrderById(int orderId) {
+        return orderDao.findOrderById(orderId);
+    }
+
 }
