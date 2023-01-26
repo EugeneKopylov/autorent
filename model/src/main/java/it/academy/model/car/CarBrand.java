@@ -27,10 +27,10 @@ public class CarBrand {
     )
     private int id;
 
-    @Column(name = "brand_name")
+    @Column(name = "brand_name", unique = true)
     private String brandName;
 
-    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<CarModel> carModels = new ArrayList<>();
 
     @Override

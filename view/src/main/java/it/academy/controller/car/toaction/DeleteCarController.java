@@ -21,6 +21,6 @@ public class DeleteCarController {
                             @PathVariable String model,
                             @PathVariable Integer price) {
         carService.deleteCarByBrandModelCost(price,brand,model);
-        return "redirect:/car-list/0.view";
+        return "redirect:/car-list/off0pgs3.view";
     }
 }

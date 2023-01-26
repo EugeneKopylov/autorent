@@ -17,6 +17,6 @@ public class PictureService {
 
     @Transactional
     public CarPicture getCarPictureById(int carPictureId) {
-        return carService.getById(carPictureId).getCarPicture();//carPictureDao.getCarPicture(carPictureId);
+        return carService.getById(carPictureId).getCarPicture();
     }
 }

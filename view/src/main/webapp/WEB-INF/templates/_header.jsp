@@ -36,6 +36,8 @@
             <security:authorize access="hasRole('ADMIN')"><li><a class="dropdown-item" href="/autorent/add-brand.view">Add car brand</a></li></security:authorize>
             <security:authorize access="hasRole('ADMIN')"><li><a class="dropdown-item" href="/autorent/add-car-model.view">Add car model</a></li></security:authorize>
             <security:authorize access="hasRole('ADMIN')"><li><a class="dropdown-item" href="/autorent/add-user.view">Add user</a></li></security:authorize>
+            <security:authorize access="hasRole('ADMIN')"><li><a class="dropdown-item" href="/autorent/update-car-brand.view">Delete car brand</a></li></security:authorize>
+            <security:authorize access="hasRole('ADMIN')"><li><a class="dropdown-item" href="/autorent/delete-car-model/.view">Delete car model</a></li></security:authorize>
             <security:authorize access="hasRole('USER')"><li><a class="dropdown-item" href="/autorent/order-list.view">My orders</a></li></security:authorize>
             <security:authorize access="hasRole('USER')"><li><a class="dropdown-item" href="/autorent/update-user-information.view">Update information about me</a></li></security:authorize>
           </ul>

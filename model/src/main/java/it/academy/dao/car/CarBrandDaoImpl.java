@@ -64,4 +64,21 @@ public class CarBrandDaoImpl implements CarBrandDao {
     public List<CarBrand> findByBrandName(String brandName) {
         return carBrandRepository.findByBrandName(brandName);
     }
+
+    @Override
+    public void changeCarBrandName(CarBrand carBrand, String newBrandName) {
+        System.out.println(carBrand.getBrandName() + "is changed to?");
+        System.out.println(carBrand.getBrandName() + "is changed to?");
+        System.out.println(carBrand.getBrandName() + "is changed to?");
+        System.out.println(carBrand.getBrandName() + "is changed to?");
+        System.out.println(carBrand.getBrandName() + "is changed to?");
+        carBrand.setBrandName(newBrandName);
+        carBrandRepository.saveAndFlush(carBrand);
+        System.out.println(carBrand.getBrandName() + "is changed to!");
+        System.out.println(carBrand.getBrandName() + "is changed to!");
+        System.out.println(carBrand.getBrandName() + "is changed to!");
+        System.out.println(carBrand.getBrandName() + "is changed to!");
+        System.out.println(carBrand.getBrandName() + "is changed to!");
+        System.out.println(carBrand.getBrandName() + "is changed to!");
+    }
 }

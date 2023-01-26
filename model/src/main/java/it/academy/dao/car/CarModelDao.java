@@ -15,5 +15,8 @@ public interface CarModelDao {
     List<CarModel> getAllModelByBrand(CarBrand carBrand);
     void createCarModel(CarModel carModel);
     List<CarModel> findByCarModelName(String modelName);
+    void deleteCarModelByModelName(String modelName);
+    void deleteById(int modelId);
+    void deleteModel(CarModel carModel);
 
 }

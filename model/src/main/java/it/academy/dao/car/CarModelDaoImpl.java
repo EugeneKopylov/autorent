@@ -48,4 +48,21 @@ public class CarModelDaoImpl implements CarModelDao {
     public List<CarModel> findByCarModelName(String modelName) {
         return carModelRepository.findByCarModelName(modelName);
     }
+
+    @Override
+    public void deleteCarModelByModelName(String modelName) {
+        carModelRepository.delete(carModelRepository.findByCarModelName(modelName).get(0));
+    }
+
+    @Override
+    public void deleteById(int modelId) {
+/*        CarModel carModel = carModelRepository.getOne(modelId);
+        carModelRepository.delete(carModel);*/
+        carModelRepository.deleteById(modelId);
+    }
+
+    @Override
+    public void deleteModel(CarModel carModel) {
+        carModelRepository.delete(carModel);
+    }
 }

@@ -17,5 +17,6 @@ public interface CarBrandDao {
     List<CarModel> getAllModelByBrand(CarBrand carBrand);
     List<String> getAllModelByBrandStringNames(CarBrand carBrand);
     List<CarBrand> findByBrandName(String brandName);
+    void changeCarBrandName(CarBrand carBrand, String newBrandName);
 
 }

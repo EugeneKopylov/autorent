@@ -75,4 +75,29 @@ public class BrandModelService {
         return carModelDao.findByCarModelName(carModel);
     }
 
+    @Transactional
+    public void deleteBrandByBrandName(String brandName) {
+        carBrandDao.deleteBrandByName(brandName);
+    }
+
+    @Transactional
+    public void deleteModelByModelName(String modelName) {
+        carModelDao.deleteCarModelByModelName(modelName);
+    }
+
+    @Transactional
+    public void deleteModelByModelNameBrandName(String modelName, String brandName) {
+        if(modelName.equals("is not set")) {
+            return;
+        }
+        CarModel cm = carModelDao.findByCarModelName(modelName).get(0);
+        cm.setBrand(null);
+        cm.setCarModelName("is not set");
+    }
+
+    @Transactional
+    public void updateBrandName(String oldBrand, String newName) {
+        carBrandDao.findByBrandName(oldBrand).get(0).setBrandName(newName);
+    }
+
 }

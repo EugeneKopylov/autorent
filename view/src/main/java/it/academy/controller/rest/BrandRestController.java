@@ -6,6 +6,7 @@ import it.academy.service.car.BrandModelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,6 +25,7 @@ public class BrandRestController {
         return new ResponseEntity<BrandModelDto>(brandModelDto, HttpStatus.OK);
     }
 
+    @Secured(value = {"ROLE_ADMIN"})
     @DeleteMapping("/brand-delete/{name}.do")
     public ResponseEntity<String> deleteBrandByName(@PathVariable String name) {
         brandModelService.deleteBrandByBrandName(name);

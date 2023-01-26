@@ -1,14 +1,11 @@
 package it.academy.controller.car.toaction;
 
 import it.academy.dtos.dto.car.CarCreationDto;
-import it.academy.dtos.mapper.BrandModelMapper;
-import it.academy.dtos.mapper.Mapper;
 import it.academy.model.car.CarBrand;
+import it.academy.model.car.CarModel;
 import it.academy.service.car.BrandModelService;
-import it.academy.service.car.CarService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,31 +15,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@Scope("session")
-@SessionAttributes("branded")
 @Secured(value = {"ROLE_ADMIN"})
 @Controller
-public class AddCarController {
-
-    @Autowired
-    CarService carService;
+public class DeleteGetCarModelController {
 
     @Autowired
     BrandModelService brandModelService;
 
-    @Autowired
-    Mapper mapper;
-
-    @Autowired
-    BrandModelMapper brandModelMapper;
-
-    @GetMapping("/add-car/{brand}.view")
-    public ModelAndView addCarPage(Model model, @PathVariable String brand) {
+    @GetMapping("/delete-car-model/{brand}.view")
+    public ModelAndView deleteCarModel(Model model, @PathVariable String brand) {
 
         if(brand.equals("")) {
             List<String> brandNames = brandModelService.getAllBrandStringName();
             model.addAttribute("brand", brandNames);
-            return new ModelAndView("add_car");
+            return new ModelAndView("delete_model");
         }
 
         List<String> brandNames = brandModelService.getAllBrandStringName();
@@ -55,17 +41,15 @@ public class AddCarController {
         model.addAttribute("branded", brand);
         model.addAttribute("models", modelNames);
 
-        return new ModelAndView("add_car");
+        return new ModelAndView("delete_model");
     }
 
-    @PostMapping("add-car.action")
+    @PostMapping("delete-car-model.action")
     @SneakyThrows
-    public String addCar(@RequestParam("picture") MultipartFile file, CarCreationDto carDto,
-                         @RequestParam("model") String models,
-                         @RequestParam("brand") String brand) {
-        carDto.setBrand(brand);
-        carDto.setCarModel(models);
-        carService.addNewCar(mapper.toCar(carDto), file.getBytes());
-        return "redirect:/car-list/off0pgs3.view";
+    public String deleteCarModel(@RequestParam("model") String models,
+                                 @RequestParam("brand") String brand) {
+        brandModelService.deleteModelByModelNameBrandName(models,brand);
+        return "redirect:/delete-car-model/.view";
     }
+
 }

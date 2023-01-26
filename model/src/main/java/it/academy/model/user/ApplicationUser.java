@@ -24,7 +24,7 @@ public class ApplicationUser {
     @PrimaryKeyJoinColumn
     private User user;
 
-    @Column(name = "nickname")
+    @Column(name = "nickname", unique = true)
     private String nickname;
 
     @Column(name = "password")
