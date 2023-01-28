@@ -3,7 +3,7 @@
 <h1>main page</h1>
 <table>
   <tr>
-    <td><div class="main">
+    <td>    <div class="main">
             <div class="d2"</div>
             <div class="d3"></div>
             <div class="d4"></div>

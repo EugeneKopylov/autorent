@@ -2,6 +2,7 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <jsp:include page="_header.jsp"/>
 <h1>Wide car information</h1>
+    <form method="post" action="/autorent/change-car-picture.action" enctype="multipart/form-data">
 
 <table style="width:100%" class="table">
     <div class="mb-3">
@@ -40,4 +41,18 @@
     <div class="mb-3">
     <image src="/autorent/image/wide/${car.carPicture.id}/picture.jpg" height="400px" width="600px" class="img-thumbnail">
     </div>
+
+    <security:authorize access="hasRole('ADMIN')">
+    <form method="post" action="/autorent/change-car-picture.action" enctype="multipart/form-data">
+        <input hidden name="brand" value="${brand}">
+        <input hidden name="model" value="${model}">
+        <input hidden name="price" value="${price}">
+       <div class="mb-3">
+             <label for="picture" class="form-label">Change the picture of the car</label>
+             <input type="file" name="picture" class="form-control" id="picture">
+             <button type="submit" class="btn btn-primary">Submit</button>
+       </div>
+    </form>
+    </security:authorize>
+
 <jsp:include page="_footer.jsp"/>
